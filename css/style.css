@@ -2170,10 +2170,10 @@ th {
 .fontSize ul li a {
     display: block;
     text-align: center;
-    line-height: 32px;
+    line-height: 42px;
     border-radius: 50%;
-    width: 32px;
-    height: 32px;
+    width: 42px;
+    height: 42px;
     color: #333;
     margin: 0;
     padding: 0;
@@ -3554,7 +3554,7 @@ th {
     box-shadow: none;
     box-sizing: border-box;
   }
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 991px) {
     .sidebarCtrlBtn {
       display: block;
     }
@@ -3567,8 +3567,8 @@ th {
     transform: translate(-50%, -50%);
     width: 20px;
     height: 2px;
-    background: #1169c2;
-    box-shadow: #1169c2 0 6px 0 0, #1169c2 0 -6px 0 0;
+    background: #fff;
+    box-shadow: #fff 0 6px 0 0, #fff 0 -6px 0 0;
     transition: 0.2s linear;
   }
   .sidebarCtrlBtn::after {
@@ -3576,7 +3576,7 @@ th {
     content: "";
     width: 20px;
     height: 2px;
-    background: #1169c2;
+    background: #fff;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
@@ -3610,7 +3610,7 @@ th {
     box-shadow: none;
     box-sizing: border-box;
   }
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 991px) {
     .searchCtrlBtn {
       display: block;
     }
@@ -3618,9 +3618,8 @@ th {
   .searchCtrlBtn:before {
     width: 40px;
     height: 40px;
-    background: url(../images/basic/icon_search.svg) no-repeat center center;
-    background-size: 28px;
-    opacity: 0.6;
+    background: url(../images/icon/icon_search.svg) no-repeat center center;
+    background-size: 20px;
     content: "";
     position: absolute;
     top: 10px;
@@ -3635,7 +3634,7 @@ th {
     z-index: 99;
     transition: 0.3s ease-out;
   }
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 991px) {
     .header {
       position: fixed;
       width: 100%;
@@ -3648,7 +3647,7 @@ th {
   }
   .header h1 {
     float: left;
-    width: 160x;
+    width: 160px;
     height: 160px;
     margin: 0;
     padding: 0;
@@ -3662,10 +3661,11 @@ th {
     max-width: 160px;
     max-height: 160px;
   }
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 991px) {
     .header h1 {
       padding: 2px 60px;
       width: 100%;
+      margin: 0;
       text-align: center;
       height: 60px;
     }
@@ -3678,17 +3678,19 @@ th {
     }
   }
   .header .navigation {
+    margin-right: 30px;
+    margin-top: 10px;
     box-sizing: border-box;
     display: flex;
   }
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 991px) {
     .header .navigation {
       display: none;
     }
   }
   .header .navigation .navList {
     flex: 1 1 auto;
-    margin: 0.5em 0.5em 0 0;
+    margin-right: 20px;
   }
   .header .navigation .navList ul {
     padding: 0;
@@ -3703,17 +3705,12 @@ th {
   }
   .header .navigation .navList li a {
     display: block;
-    padding: 0.5em;
+    padding: 0 0.5em;
     text-decoration: none;
-    text-decoration: none;
-    color: #222;
+    line-height: 60px;
   }
-  .header .navigation .navList li a:hover, .header .navigation .navList li a:focus-visible {
-    color: #0094e0;
-    cursor: pointer;
-  }
-  .header .navigation .navList li a:focus-visible {
-    outline: #0094e0 2px solid;
+  .header .navigation .navList li a:hover, .header .navigation .navList li a:focus {
+    background: rgba(0, 0, 0, 0.5);
   }
   .header .navigation .language {
     flex-grow: 0;
@@ -3724,39 +3721,70 @@ th {
     align-items: center;
     align-self: center;
   }
+  .searchCtrl {
+    background: transparent;
+    border-color: transparent;
+    position: absolute;
+    right: 15px;
+    top: 0;
+    font-size: 0em;
+  }
+  .searchCtrl:before {
+    width: 60px;
+    height: 60px;
+    background: url(../images/icon/icon_search.svg) no-repeat center center;
+    background-size: 20px;
+    content: "";
+    display: block;
+  }
+  .searchCtrl:hover, .searchCtrl:focus {
+    background: #093664;
+    border-color: #093664;
+  }
+  @media screen and (max-width: 991px) {
+    .searchCtrl {
+      display: none;
+    }
+  }
   .webSearch {
     position: absolute;
     right: 0;
-    top: 48px;
+    top: 62px;
     background: rgba(0, 0, 0, 0.65);
     z-index: 101;
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
     vertical-align: top;
-    font-size: 0.938em;
-    margin: 0 1em;
     padding: 4em 2em;
     box-sizing: border-box;
     width: 100%;
+    display: none;
   }
-  @media screen and (max-width: 767px) {
+  .webSearch.active {
+    display: flex;
+  }
+  @media screen and (max-width: 991px) {
     .webSearch {
       display: none;
     }
   }
   .webSearch label {
     font-size: 0em;
+    position: absolute;
+    z-index: -1;
   }
   .webSearch .formGrp {
     flex: 0 0 auto;
     margin: 0;
+    position: relative;
   }
   .webSearch .formGrp input {
-    margin: 0 0 0 0.5em;
-    padding: 0.25em 0.5em;
+    margin: 0;
+    padding: 0.75em 120px 0.75em 2em;
     box-shadow: none;
-    width: auto;
+    width: 100%;
   }
   .webSearch .formGrp input[type=submit] {
     min-width: auto;
@@ -3769,8 +3797,12 @@ th {
 .webSearch .formGrp .btn,
 .webSearch .formGrp .btnSearch {
     min-width: auto;
-    padding: 0.2em 0.8em;
+    width: 90px;
+    padding: 0.75em 0;
+    border-radius: 0 0.2em 0.2em 0;
     margin: 0;
+    position: absolute;
+    right: 0;
   }
   .webSearch .formGrp button:hover, .webSearch .formGrp button:focus-visible,
 .webSearch .formGrp .btn:hover,
@@ -3788,7 +3820,7 @@ th {
 .webSearch .btnGrp .btn,
 .webSearch .btnGrp .btnSearch {
     min-width: auto;
-    padding: 0.2em 0.8em;
+    padding: 0.75em 2em;
     margin: 0;
   }
   .webSearch .btnGrp button:hover, .webSearch .btnGrp button:focus-visible,
@@ -3800,6 +3832,7 @@ th {
   }
   .webSearch .keywordHot {
     flex: 1 1 100%;
+    margin-top: 1em;
   }
   .webSearch .keywordHot ul {
     font-size: 0.813em;
@@ -3959,8 +3992,9 @@ th {
     z-index: 99;
     clear: both;
     width: calc(100% - 600px);
+    top: 20px;
   }
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 991px) {
     .mainMenu {
       display: none;
     }
@@ -4232,7 +4266,7 @@ th {
   }
   footer .footerLink li a {
     display: block;
-    padding: 0.45em 1em;
+    padding: 0.45em 1.75em;
     background: #e2e2e2;
     color: #222;
     font-weight: bold;
@@ -7056,7 +7090,7 @@ div.function ul li a:focus-visible {
     width: 100%;
     margin: 0px auto;
   }
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 991px) {
     .wrapper {
       background: #fff;
       overflow: hidden;
@@ -7073,7 +7107,7 @@ div.function ul li a:focus-visible {
     padding-left: 60px;
     padding-right: 60px;
   }
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 991px) {
     .container {
       padding-left: 20px;
       padding-right: 20px;
@@ -7082,11 +7116,6 @@ div.function ul li a:focus-visible {
   .main {
     position: relative;
     margin: 0 auto 5em;
-  }
-  @media screen and (max-width: 767px) {
-    .main {
-      padding-top: 60px;
-    }
   }
   .main h2 {
     line-height: 1.25em;
@@ -8438,7 +8467,15 @@ div.function ul li a:focus-visible {
   padding: 4em 0;
 }
 .mp .main a.accessKey {
-  top: 900px;
+  left: 40%;
+  top: 90px;
+  z-index: 99;
+  color: #fff;
+}
+@media screen and (max-width: 991px) {
+  .mp .main > section {
+    padding: 2em 0 1em;
+  }
 }
 .mp h2.title {
   text-align: center;
@@ -8447,10 +8484,17 @@ div.function ul li a:focus-visible {
 .mp .swiperDots {
   margin-top: 20px;
 }
+.mp .TTSB_link {
+  position: absolute;
+  z-index: 100;
+  width: 1440px;
+  background: pink;
+}
 .mp .heroSlider {
   height: 800px;
   background: #eee;
   padding: 0 !important;
+  overflow: hidden;
 }
 .mp .heroSlider .container {
   position: relative;
@@ -8468,12 +8512,33 @@ div.function ul li a:focus-visible {
   top: 0;
   z-index: 2;
 }
+@media screen and (max-width: 991px) {
+  .mp .heroSlider {
+    height: 667px;
+  }
+  .mp .heroSlider .container:before {
+    width: 60%;
+    -webkit-clip-path: polygon(0 0, 100% 0, 30% 100%, 0% 100%);
+            clip-path: polygon(0 0, 100% 0, 30% 100%, 0% 100%);
+  }
+}
 .mp .heroSlider .heroInfo {
   position: absolute;
   width: 570px;
+  text-align: center;
   right: 12%;
   top: 15%;
   z-index: 100;
+}
+.mp .heroSlider .heroInfo a.more {
+  border: solid 1px rgba(255, 255, 255, 0.7);
+}
+@media screen and (max-width: 991px) {
+  .mp .heroSlider .heroInfo {
+    top: 20%;
+    right: 15%;
+    width: 70%;
+  }
 }
 .mp .heroSlider .swiper-wrapper {
   height: 800px !important;
@@ -8525,6 +8590,14 @@ div.function ul li a:focus-visible {
 .mp .list > ul > li time, .mp .list ol > li time {
   flex: 0 0 90px;
   align-self: center;
+}
+@media screen and (max-width: 991px) {
+  .mp .list > ul > li > a, .mp .list ol > li > a {
+    flex-wrap: wrap;
+  }
+  .mp .list > ul > li > a time, .mp .list ol > li > a time {
+    flex: 1 1 100%;
+  }
 }
 .mp .typeThumbs {
   position: relative;
@@ -8769,6 +8842,9 @@ a.more {
   margin: 2.5em auto;
   border-radius: 5em;
   text-align: center;
+  border: solid 1px rgba(255, 255, 255, 0);
+  -webkit-backdrop-filter: blur(3px);
+          backdrop-filter: blur(3px);
   transition: 0.3s;
   position: relative;
 }
@@ -8785,6 +8861,8 @@ a.more::before {
 a.more:hover, a.more:focus {
   background: #0f5aa6;
   color: #fff;
+  border: solid 1px rgba(255, 255, 255, 0.7);
+  box-shadow: rgba(255, 255, 255, 0.16) 0 10px 36px 0, rgba(255, 255, 255, 0.06) 0 0 0 1px;
 }
 a.more:hover::before, a.more:focus::before {
   right: 24px;
@@ -8805,8 +8883,12 @@ a.moreType2::after {
   width: 18px;
   height: 6px;
   background: url(../images/icon_arrow.svg) center no-repeat;
-  right: 0;
+  right: 12px;
   top: 40%;
+  transition: 0.3s;
+}
+a.moreType2:hover::after, a.moreType2:focus::after {
+  right: 0;
 }
 
 .demoSection [class^=col] {

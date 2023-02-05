@@ -144,15 +144,25 @@ accordionSlider({
   });
 
   //廣告輪播
+  let adSliderItem = document.querySelectorAll('.adSlider .swiper-slide');
+  let adSliderPagination = [];
   const adSwiper = new Swiper('.adSlider .swiper', {
     // slidesPerView: 5,
     spaceBetween: 30,
     loop: false,
     // 切換點
+    // pagination: {
+    //   el: '.adSlider .swiperDots',
+    //   bulletElement: 'button',
+    //   clickable: true,
+    // },
     pagination: {
       el: '.adSlider .swiperDots',
       bulletElement: 'button',
       clickable: true,
+      renderBullet: function (index, className) {
+        return `<button class="${className} noFonts" aria-label="${adSliderPagination[index]}">${adSliderPagination[index]}</button>`;
+      },
     },
     // 切換箭頭
     navigation: {

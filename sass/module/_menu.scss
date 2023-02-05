@@ -7,13 +7,14 @@
     transform: translateY(0px);
   }
 }
-// pc版 條列menu
+// pc版 條列 menu
 .mainMenu {
   box-sizing: border-box;
   position: relative;
   z-index: 99;
   clear: both;
   width: calc(100% - 600px);
+  top: 20px;
   // background: rgba(0, 0, 0, 0.3);
   // &.sticky {
   //   position: fixed;
@@ -38,7 +39,7 @@
   //     margin: 0 auto;
   //   }
   // }
-  @include screen('mobile') {
+  @include screen('tablet') {
     display: none;
   }
   // 預設選單 ul

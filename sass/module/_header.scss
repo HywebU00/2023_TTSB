@@ -16,11 +16,11 @@
   border: none;
   box-shadow: none;
   box-sizing: border-box;
-  @include screen('mobile') {
+  @include screen('tablet') {
     display: block;
   }
 }
-
+// mobile menu btn
 .sidebarCtrlBtn {
   display: none;
   left: 0px;
@@ -33,8 +33,9 @@
     transform: translate(-50%, -50%);
     width: 20px;
     height: 2px;
-    background: $colorPrimary;
-    box-shadow: $colorPrimary 0 6px 0 0, $colorPrimary 0 -6px 0 0;
+    // background: $colorPrimary;
+    background: #fff;
+    box-shadow: #fff 0 6px 0 0, #fff 0 -6px 0 0;
     transition: 0.2s linear;
   }
   &::after {
@@ -42,7 +43,8 @@
     content: '';
     width: 20px;
     height: 2px;
-    background: $colorPrimary;
+    // background: $colorPrimary;
+    background: #fff;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
@@ -69,9 +71,9 @@
   &:before {
     width: 40px;
     height: 40px;
-    background: url(../images/basic/icon_search.svg) no-repeat center center;
-    background-size: 28px;
-    opacity: 0.6;
+    background: url(../images/icon/icon_search.svg) no-repeat center center;
+    background-size: 20px;
+    // opacity: 0.6;
     content: '';
     position: absolute;
     top: 10px;
@@ -79,7 +81,7 @@
     display: block;
   }
 }
-//header
+// header
 .header {
   position: relative;
   width: 100%;
@@ -88,9 +90,10 @@
   z-index: 99;
   transition: 0.3s ease-out;
   // box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-  @include screen('mobile') {
+  @include screen('tablet') {
     position: fixed;
     width: 100%;
+    // background: darken($colorPrimary, 10);
   }
   // &:before {
   //   position: absolute;
@@ -114,7 +117,7 @@
   }
   h1 {
     float: left;
-    width: 160x;
+    width: 160px;
     height: 160px;
     margin: 0;
     padding: 0;
@@ -127,9 +130,10 @@
       max-width: 160px;
       max-height: 160px;
     }
-    @include screen('mobile') {
+    @include screen('tablet') {
       padding: 2px 60px;
       width: 100%;
+      margin: 0;
       text-align: center;
       height: 60px;
       img {
@@ -143,14 +147,18 @@
   }
   // 導覽列
   .navigation {
-    @include screen('mobile') {
+    margin-right: 30px;
+    margin-top: 10px;
+    @include screen('tablet') {
       display: none;
     }
     box-sizing: border-box;
     display: flex;
     .navList {
       flex: 1 1 auto;
-      margin: .5em .5em 0 0;
+      // margin: .5em .5em 0 0;
+      margin-right: 20px;
+      // background: pink;
       ul {
         padding: 0;
         margin: 0;
@@ -164,9 +172,15 @@
 
         a {
           display: block;
-          padding: 0.5em;
+          padding: 0 .5em;
           text-decoration: none;
-          @include aSetting($colorWord);
+          line-height: 60px;
+          // @include aSetting($colorWord);
+
+          &:hover,
+          &:focus{
+            background: rgba(0,0,0,.5);
+          }
         }
       }
     }
@@ -183,38 +197,77 @@
     }
   }
 }
-//search
+// search
+// 桌機版 開啟 search 表單
+.searchCtrl{
+  background: transparent;
+  border-color: transparent;
+  position: absolute;
+  right: 15px;
+  top: 0;
+  font-size: 0em;
+  &:before {
+    width: 60px;
+    height: 60px;
+    background: url(../images/icon/icon_search.svg) no-repeat center center;
+    background-size: 20px;
+    // opacity: 0.6;
+    content: '';
+    // position: absolute;
+    // top: 10px;
+    // left: 10px;
+    display: block;
+  }
+  &:hover,
+  &:focus{
+    background: darken($colorPrimary, 20);
+    border-color: darken($colorPrimary, 20);
+  }
+  @include screen('tablet'){
+    display: none;
+  }
+}
 .webSearch {
   position: absolute;
   right: 0;
-  top: 48px;
+  top: 62px;
   background: rgba(0, 0, 0, 0.65);
   z-index: 101;
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
   vertical-align: top;
-  font-size: 0.938em;
-  margin: 0 1em;
+  // font-size: 0.938em;
+  // margin: 0 1em;
   padding: 4em 2em;
   box-sizing: border-box;
   // max-width: 420px;
   width: 100%;
+  display: none;
 
-  @include screen('mobile') {
+  &.active{
+    display: flex;
+  }
+
+  @include screen('tablet') {
     display: none;
   }
   label {
     font-size: 0em;
+    position: absolute;
+    z-index: -1;
   }
   .formGrp {
     flex: 0 0 auto;
     margin: 0;
+
+    position: relative;
     input {
-      margin: 0 0 0 0.5em;
-      padding: 0.25em 0.5em;
+      margin: 0;
+      padding: .75em 120px .75em 2em;
       box-shadow: none;
-      width: auto;
+      width: 100%;
       &[type='submit'] {
         min-width: auto;
         padding: 0.2em 0.8em;
@@ -227,8 +280,12 @@
     .btn,
     .btnSearch {
       min-width: auto;
-      padding: 0.2em 0.8em;
+      width: 90px;
+      padding: .75em 0;
+      border-radius: 0 0.2em 0.2em 0;
       margin: 0;
+      position: absolute;
+      right: 0;
       &:hover,
       &:focus-visible {
         box-shadow: none;
@@ -243,7 +300,7 @@
     .btn,
     .btnSearch {
       min-width: auto;
-      padding: 0.2em 0.8em;
+      padding: .75em 2em;
       margin: 0;
       &:hover,
       &:focus-visible {
@@ -253,6 +310,7 @@
   }
   .keywordHot {
     flex: 1 1 100%;
+    margin-top: 1em;
     ul {
       font-size: 0.813em;
       line-height: 1.65em;
