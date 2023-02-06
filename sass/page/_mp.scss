@@ -5,18 +5,18 @@
   // background: pink;
   .header {
     position: absolute;
-    z-index: 80;
+    z-index: 90;
     a {
       color: #fff;
     }
 
-    &::before {
-      content: '';
-      position: absolute;
-      width: 100%;
-      height: 300px;
-      background: url(../images/bg_mp_hero_bangs.png) left top repeat-x;
-    }
+    // &::before {
+    //   content: '';
+    //   position: absolute;
+    //   width: 100%;
+    //   height: 300px;
+    //   background: url(../images/bg_mp_hero_bangs.png) left top repeat-x;
+    // }
   }
   .main {
     > section {
@@ -60,6 +60,16 @@
     background: #eee;
     padding: 0 !important;
     overflow: hidden;
+    position: relative;
+    &::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 300px;
+      top: 0;
+      z-index: 5;
+      background: url(../images/bg_mp_hero_bangs.png) left top repeat-x;
+    }
     .container {
       position: relative;
       &:before {
@@ -90,7 +100,7 @@
       text-align: center;
       right: 12%;
       top: 15%;
-      z-index: 70;
+      z-index: 80;
       a.more {
         border: solid 1px rgba(255, 255, 255, 0.7);
       }

@@ -1773,7 +1773,31 @@ langFunction({
 (function () {
   const webSearch = document.querySelector('.wrapper .webSearch') || null;
   const searchBtn = document.querySelector('.wrapper .searchCtrl') || null;
-  searchBtn.addEventListener('click', function () {
-    webSearch.classList.toggle('active');
+  const heroInfo = document.querySelector('.mp .heroSlider .heroInfo') || null;
+  const searchItem = webSearch.querySelectorAll('a,input');
+  const mobileSearch = document.querySelector('.searchCtrlBtn');
+  const mainMenu = document.querySelector('.mainMenu');
+
+  searchBtn.addEventListener('click', searchOpen);
+  searchBtn.addEventListener('keydown', searchOpen);
+  document.addEventListener('click', clickOtherPlace);
+
+  searchItem[searchItem.length - 1].addEventListener('focusout', function () {
+    webSearch.classList.remove('active');
   });
+
+  mobileSearch.addEventListener('click', function () {
+    webSearch.classList.remove('active');
+  });
+
+  function searchOpen() {
+    webSearch.classList.toggle('active');
+  }
+  function clickOtherPlace(e) {
+    if ((e.target.closest(`.wrapper .webSearch`) === null) & (e.target !== searchBtn)) {
+      webSearch.classList.remove('active');
+    } else {
+      return;
+    }
+  }
 })();

@@ -3989,11 +3989,10 @@ th {
   }
   .mainMenu {
     box-sizing: border-box;
-    position: relative;
+    position: absolute;
     z-index: 99;
     clear: both;
-    width: calc(100% - 600px);
-    top: 20px;
+    top: 180px;
   }
   @media screen and (max-width: 991px) {
     .mainMenu {
@@ -8453,17 +8452,10 @@ div.function ul li a:focus-visible {
 
 .mp .header {
   position: absolute;
-  z-index: 80;
+  z-index: 90;
 }
 .mp .header a {
   color: #fff;
-}
-.mp .header::before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 300px;
-  background: url(../images/bg_mp_hero_bangs.png) left top repeat-x;
 }
 .mp .main > section {
   padding: 4em 0;
@@ -8497,6 +8489,16 @@ div.function ul li a:focus-visible {
   background: #eee;
   padding: 0 !important;
   overflow: hidden;
+  position: relative;
+}
+.mp .heroSlider::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 300px;
+  top: 0;
+  z-index: 5;
+  background: url(../images/bg_mp_hero_bangs.png) left top repeat-x;
 }
 .mp .heroSlider .container {
   position: relative;
@@ -8530,7 +8532,7 @@ div.function ul li a:focus-visible {
   text-align: center;
   right: 12%;
   top: 15%;
-  z-index: 70;
+  z-index: 80;
 }
 .mp .heroSlider .heroInfo a.more {
   border: solid 1px rgba(255, 255, 255, 0.7);
