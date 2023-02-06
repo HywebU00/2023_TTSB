@@ -3760,10 +3760,11 @@ th {
     padding: 4em 2em;
     box-sizing: border-box;
     width: 100%;
-    display: none;
+    transition: all 0.3s ease-in-out;
+    transform: translateY(-150%);
   }
   .webSearch.active {
-    display: flex;
+    transform: translateY(0%);
   }
   @media screen and (max-width: 991px) {
     .webSearch {
@@ -3884,7 +3885,7 @@ th {
     left: 0;
     z-index: 98;
     background: #333;
-    transform: translateY(-100%);
+    transform: translateY(calc(-100% - 60px));
     opacity: 0;
     margin: 0;
     transition: all 0.3s linear;
@@ -6209,7 +6210,7 @@ table td {
   }
   .thumbnail .imgContainer {
     overflow: hidden;
-    aspect-ratio: 1.3333333333;
+    aspect-ratio: 4/3;
     position: relative;
     margin-bottom: 0.5em;
   }
@@ -7036,7 +7037,7 @@ div.function ul li a:focus-visible {
     display: block;
     position: relative;
     overflow: hidden;
-    aspect-ratio: 3;
+    aspect-ratio: 3/1;
     position: relative;
   }
   .banner .item a img {
@@ -7552,7 +7553,7 @@ div.function ul li a:focus-visible {
     width: 100%;
     position: relative;
     overflow: hidden;
-    aspect-ratio: 1.3333333333;
+    aspect-ratio: 4/3;
     position: relative;
     background: #f1f1f1;
   }
@@ -7819,7 +7820,7 @@ div.function ul li a:focus-visible {
 }
 .cpSlider .swiper .imgContainer {
   overflow: hidden;
-  aspect-ratio: 1.3333333333;
+  aspect-ratio: 4/3;
   position: relative;
   overflow: hidden;
 }
@@ -8452,6 +8453,7 @@ div.function ul li a:focus-visible {
 
 .mp .header {
   position: absolute;
+  z-index: 80;
 }
 .mp .header a {
   color: #fff;
@@ -8528,7 +8530,7 @@ div.function ul li a:focus-visible {
   text-align: center;
   right: 12%;
   top: 15%;
-  z-index: 100;
+  z-index: 70;
 }
 .mp .heroSlider .heroInfo a.more {
   border: solid 1px rgba(255, 255, 255, 0.7);
@@ -8575,27 +8577,33 @@ div.function ul li a:focus-visible {
   right: 0;
   top: 28%;
 }
-.mp .list > ul, .mp .list ol {
+.mp .list > ul,
+.mp .list ol {
   border-top: none;
 }
-.mp .list > ul > li, .mp .list ol > li {
+.mp .list > ul > li,
+.mp .list ol > li {
   padding: 0;
 }
-.mp .list > ul > li > a, .mp .list ol > li > a {
+.mp .list > ul > li > a,
+.mp .list ol > li > a {
   padding: 1em 0;
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-between;
 }
-.mp .list > ul > li time, .mp .list ol > li time {
+.mp .list > ul > li time,
+.mp .list ol > li time {
   flex: 0 0 90px;
   align-self: center;
 }
 @media screen and (max-width: 991px) {
-  .mp .list > ul > li > a, .mp .list ol > li > a {
+  .mp .list > ul > li > a,
+.mp .list ol > li > a {
     flex-wrap: wrap;
   }
-  .mp .list > ul > li > a time, .mp .list ol > li > a time {
+  .mp .list > ul > li > a time,
+.mp .list ol > li > a time {
     flex: 1 1 100%;
   }
 }
@@ -8678,7 +8686,8 @@ div.function ul li a:focus-visible {
           clip-path: polygon(0 6%, 100% 0, 100% 100%, 0 100%);
   background: #fff;
 }
-.mp .typeThumbs.gridType .thumbnail .deco .imgContainer, .mp .typeThumbs.gridType .thumbnail .deco .caption {
+.mp .typeThumbs.gridType .thumbnail .deco .imgContainer,
+.mp .typeThumbs.gridType .thumbnail .deco .caption {
   flex: 1 1 100%;
 }
 .mp .typeThumbs.gridType .thumbnail .deco .caption {
@@ -8907,7 +8916,7 @@ a.moreType2:hover::after, a.moreType2:focus::after {
 }
 .mpSlider .imgContainer {
   overflow: hidden;
-  aspect-ratio: 2.5;
+  aspect-ratio: 5/2;
   position: relative;
 }
 .mpSlider .imgContainer img {
@@ -8958,11 +8967,13 @@ a.moreType2:hover::after, a.moreType2:focus::after {
   box-shadow: 0 0px 0px 3px #1169c2 inset;
 }
 
-.mpSlider .container, .adSlider .container {
+.mpSlider .container,
+.adSlider .container {
   padding-left: 0 !important;
   padding-right: 0 !important;
 }
-.mpSlider .swiper, .adSlider .swiper {
+.mpSlider .swiper,
+.adSlider .swiper {
   margin-left: 60px;
   margin-right: 60px;
 }

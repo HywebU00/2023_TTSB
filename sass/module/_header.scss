@@ -172,14 +172,14 @@
 
         a {
           display: block;
-          padding: 0 .5em;
+          padding: 0 0.5em;
           text-decoration: none;
           line-height: 60px;
           // @include aSetting($colorWord);
 
           &:hover,
-          &:focus{
-            background: rgba(0,0,0,.5);
+          &:focus {
+            background: rgba(0, 0, 0, 0.5);
           }
         }
       }
@@ -199,7 +199,7 @@
 }
 // search
 // 桌機版 開啟 search 表單
-.searchCtrl{
+.searchCtrl {
   background: transparent;
   border-color: transparent;
   position: absolute;
@@ -219,11 +219,11 @@
     display: block;
   }
   &:hover,
-  &:focus{
+  &:focus {
     background: darken($colorPrimary, 20);
     border-color: darken($colorPrimary, 20);
   }
-  @include screen('tablet'){
+  @include screen('tablet') {
     display: none;
   }
 }
@@ -244,10 +244,12 @@
   box-sizing: border-box;
   // max-width: 420px;
   width: 100%;
-  display: none;
+  transition: all 0.3s ease-in-out;
+  transform: translateY(-150%);
+  // display: none;
 
-  &.active{
-    display: flex;
+  &.active {
+    transform: translateY(0%);
   }
 
   @include screen('tablet') {
@@ -265,7 +267,7 @@
     position: relative;
     input {
       margin: 0;
-      padding: .75em 120px .75em 2em;
+      padding: 0.75em 120px 0.75em 2em;
       box-shadow: none;
       width: 100%;
       &[type='submit'] {
@@ -281,7 +283,7 @@
     .btnSearch {
       min-width: auto;
       width: 90px;
-      padding: .75em 0;
+      padding: 0.75em 0;
       border-radius: 0 0.2em 0.2em 0;
       margin: 0;
       position: absolute;
@@ -300,7 +302,7 @@
     .btn,
     .btnSearch {
       min-width: auto;
-      padding: .75em 2em;
+      padding: 0.75em 2em;
       margin: 0;
       &:hover,
       &:focus-visible {
@@ -356,7 +358,7 @@
   left: 0;
   z-index: 98;
   background: #333;
-  transform: translateY(-100%);
+  transform: translateY(calc(-100% - 60px));
   opacity: 0;
   margin: 0;
   transition: all 0.3s linear;

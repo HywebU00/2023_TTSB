@@ -109,15 +109,13 @@ const slider = (function () {
   return Slider;
 })();
 
-console.log(slider.TimerManager);
-
 function jsFadeIn(element) {
   let val = 0;
   let request;
   element.style.display = 'block';
   requestAnimationFrame(fade);
   function fade() {
-    val += 100;
+    val += 5;
     if (val <= 100) {
       element.style.opacity = val / 100;
       request = requestAnimationFrame(fade);
@@ -133,13 +131,14 @@ function jsFadeOut(element) {
   requestAnimationFrame(fade);
   function fade() {
     val -= 5;
-    if (val >= 1) {
+    if (val >= 0) {
       element.style.opacity = val / 100;
       request = requestAnimationFrame(fade);
-    } else if (val <= 0) {
+    } else if (val > 0) {
+      setTimeout(() => {
+        element.style = '';
+      }, 300);
       cancelAnimationFrame(request);
-      element.style.opacity = '0';
-      element.style.display = 'none';
     }
   }
 }
@@ -316,24 +315,25 @@ function topNav() {
 // -----------------------------------------------------------------------
 
 function mobileSearch(obj) {
-  let searchOpen = false;
   const searchCtrlBtn = obj.searchCtrlBtn;
   const mobileSearch = document.querySelector('.mobileSearch');
   const menuOverlay = document.querySelector('.menuOverlay');
 
   searchCtrlBtn.addEventListener('click', (e) => {
+    let searchOpen = mobileSearch.classList.contains('active');
     e.stopPropagation();
     // --- 點擊搜尋區以外的區塊
     // --- 如果點在外面 則 searchMode 狀態改為false
     if (!searchOpen) {
+      mobileSearch.removeAttribute('style');
       mobileSearch.classList.add('active');
       jsFadeIn(menuOverlay);
       menuOverlay.style.zIndex = `90`;
+      menuOverlay.style.top = `60px`;
       searchOpen = true;
     } else {
       mobileSearch.classList.remove('active');
       jsFadeOut(menuOverlay);
-      menuOverlay.style.zIndex = `99`;
       searchOpen = false;
     }
   });
@@ -356,7 +356,6 @@ function mobileSearch(obj) {
 mobileSearch({
   searchCtrlBtn: document.querySelector('.searchCtrlBtn'),
 });
-
 // -----------------------------------------------------------------------
 // ----- 手機桌機版本切換及手機版menu設定 -------------------------------------
 // -----------------------------------------------------------------------
@@ -484,6 +483,7 @@ function mainMenuSetup() {
     e.preventDefault();
     mobileSearch !== null ? mobileSearch.classList.remove('active') : '';
     menuOverlay.style.zIndex = '99';
+    menuOverlay.style.top = '0';
   });
 
   menuOverlay.addEventListener('click', (e) => {
@@ -500,7 +500,7 @@ function mainMenuSetup() {
     let language = document.querySelector('.language ul');
     hideSidebar();
     body.classList.remove('noscroll');
-    mobileSearch !== null ? (mobileSearch.style.display = 'none') : '';
+    // mobileSearch !== null ? (mobileSearch.style.display = 'none') : '';
     language !== null ? (language.style.display = 'none') : '';
     // --- 副選單滑出
 
@@ -537,7 +537,7 @@ function mainMenuSetup() {
 
   function switchResizeFunction() {
     setTimeout(() => {
-      mobileSearch !== null ? (mobileSearch.style.display = 'none') : '';
+      // mobileSearch !== null ? (mobileSearch.style.display = 'none') : '';
       windowWidth = window.outerWidth;
       switchMenu();
       checkUlWidth();
@@ -558,7 +558,7 @@ function mainMenuSetup() {
     }, 50);
 
     body.classList.add('noscroll');
-    mobileSearch !== null ? (mobileSearch.style.display = 'none') : '';
+    // mobileSearch !== null ? (mobileSearch.style.display = 'none') : '';
     searchMode = false;
     jsFadeIn(menuOverlay);
   }
@@ -987,7 +987,6 @@ function scrollToTop(obj) {
   }
   el.addEventListener('click', (e) => {
     e.preventDefault();
-    ƒ;
     scrollTop();
   });
 
@@ -1770,3 +1769,11 @@ langFunction({
     },
   },
 });
+
+(function () {
+  const webSearch = document.querySelector('.wrapper .webSearch') || null;
+  const searchBtn = document.querySelector('.wrapper .searchCtrl') || null;
+  searchBtn.addEventListener('click', function () {
+    webSearch.classList.toggle('active');
+  });
+})();
