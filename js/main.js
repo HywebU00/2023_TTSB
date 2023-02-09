@@ -1121,24 +1121,24 @@ languageSelect.initial();
 // -----  分享按鈕 share dropdwon   ---------------------------------------
 // -----------------------------------------------------------------------
 
-function shareBtnFunction() {
-  // --- 創造一個a連結的按鈕
-  const shareUl = document.querySelector('.share');
-  const btn = document.createElement('a');
-  if (shareUl) {
-    btn.setAttribute('class', 'shareButton');
-    btn.setAttribute('role', 'button');
-    btn.setAttribute('tabindex', '0');
-    btn.textContent = 'share分享按鈕';
-    shareUl.insertBefore(btn, shareUl.childNodes[0]);
-  }
-  const shareBtn = new SelectSlider({
-    name: document.querySelectorAll('.share'), // --- 控制的對象
-    control: document.querySelectorAll('.share a'), // --- 監聽的對象
-  });
-  shareBtn.initial();
-}
-shareBtnFunction();
+// function shareBtnFunction() {
+//   // --- 創造一個a連結的按鈕
+//   const shareUl = document.querySelector('.share');
+//   const btn = document.createElement('a');
+//   if (shareUl) {
+//     btn.setAttribute('class', 'shareButton');
+//     btn.setAttribute('role', 'button');
+//     btn.setAttribute('tabindex', '0');
+//     // btn.textContent = 'share分享按鈕';
+//     shareUl.insertBefore(btn, shareUl.childNodes[0]);
+//   }
+//   const shareBtn = new SelectSlider({
+//     name: document.querySelectorAll('.share'), // --- 控制的對象
+//     control: document.querySelectorAll('.share a'), // --- 監聽的對象
+//   });
+//   shareBtn.initial();
+// }
+// shareBtnFunction();
 
 // -----------------------------------------------------------------------
 // -----  form表單 單個檔案上傳+多個檔案上傳   --------------------------------

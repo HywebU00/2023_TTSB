@@ -1,11 +1,11 @@
 // functionPanel setting   ------------------------
 .functionPanel {
-  margin: 0.2em 0;
-  padding: 0.5em 0 0.5em;
+  margin: 2em 0;
+  // padding: .5em 0 .5em;
   min-height: 35px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
   font-size: 0.938rem;
   @include screen('mobile') {
@@ -56,141 +56,88 @@
 %functionBefore {
   vertical-align: middle;
   content: '';
-  width: 1.2em;
-  height: 1.2em;
-  margin-right: 0.5em;
-  display: inline-block;
+  // width: 1.2em;
+  // height: 1.2em;
+  // margin-right: 0.5em;
+  // display: inline-block;
 }
-div.function {
+.function {
   box-sizing: border-box;
-  margin: 0.5em 0;
+  height: 48px;
+  margin: 0;
   ul {
     @include liReset;
     display: flex;
     justify-content: flex-end;
     list-style-type: none;
     li {
-      margin: 0 0px 0px 3px;
-      flex: 0 0 auto;
+      margin: 0 0.2em;
+      flex: 0 0 32px;
       button,
       a {
-        font-size: 0.813rem;
         display: block;
-        padding: 0.2em 1em;
-        background: $colorFunction;
-        border-color: $colorFunction;
-        color: #fff;
-        border-radius: 4px;
+        box-sizing: border-box;
+        width: 48px;
+        height: 48px;
+        line-height: 48px;
+        border-radius: 50%;
+        background: #fff;
+        border: 1px solid #c3c3c3;
+        text-indent: -9999px;
+        position: relative;
+        &:before {
+          content: '';
+          position: absolute;
+          width: 48px;
+          height: 48px;
+          top: 0;
+          left: 0;
+          opacity: .5;
+        }
         &:hover,
         &:focus-visible {
-          background: darken($aHover, 0);
-          border-color: darken($aHover, 0);
+          // background: darken($aHover, 0);
+          background: #f0f0f0;
+          &:before {
+            content: '';
+            position: absolute;
+            width: 48px;
+            height: 48px;
+            top: 0;
+            left: 0;
+            opacity: 1;
+          }
         }
       }
       // 回上一頁
       &.icon_back {
         a:before {
           @extend %functionBefore;
-          background: url(../images/basic/icon_back.svg) no-repeat center center;
-          background-size: 16px;
+          background: url(../images/icon_arrow2.svg) no-repeat center center;
+          transform: rotate(180deg) translateX(3px);
+          background-size: 12px;
         }
       }
       // 友善列印
       &.icon_print {
         a:before {
           @extend %functionBefore;
-          background: url(../images/basic/icon_print.svg) no-repeat center center;
-          background-size: 20px;
+          background: url(../images/icon_print.svg) no-repeat center center;
+          background-size: 24px;
         }
       }
       // 轉寄友人
       &.icon_forward {
         a:before {
           @extend %functionBefore;
-          background: url(../images/basic/icon_forward.svg) no-repeat center bottom;
-          background-size: 20px;
+          background: url(../images/icon_mail.svg) no-repeat center center;
+          background-size: 26px;
         }
       }
     }
   }
 }
-// 放進functionPanel樣式
-.functionPanel {
-  display: flex;
-  flex-flow: row wrap;
-  align-content: center;
-  .fontSize {
-    padding: 0;
-    flex: initial;
-    flex-grow: 0;
-    flex-shrink: 1;
-    flex-basis: auto;
-  }
-  .function {
-    height: 32px;
-    margin: 0;
-    ul {
-      display: flex;
-      li {
-        font-size: 1em;
-        margin: 0 0.2em;
-        flex: 0 0 32px;
-        a {
-          display: block;
-          box-sizing: border-box;
-          width: 32px;
-          height: 32px;
-          text-align: center;
-          line-height: 32px;
-          border-radius: 50%;
-          background: #f1f1f1;
-          text-indent: -9999px;
-          position: relative;
-          &:hover,
-          &:focus-visible {
-            background: $aHover;
-            color: #fff;
-            &:before {
-              filter: invert(100%);
-            }
-          }
-          &:before {
-            content: '';
-            position: absolute;
-            width: 60%;
-            height: 60%;
-            top: 20%;
-            left: 20%;
-          }
-        }
-        &.back {
-          a:before {
-            background: url(../images/basic/icon_back_dark.svg) no-repeat center center;
-            background-size: 100%;
-          }
-        }
-
-        &.print {
-          a:before {
-            background: url(../images/basic/icon_print_dark.svg) no-repeat center center;
-            background-size: 100%;
-          }
-          @include screen('mobile') {
-            display: none;
-          }
-        }
-        &.forward {
-          a:before {
-            background: url(../images/basic/icon_forward_dark.svg) no-repeat center center;
-            background-size: 100%;
-          }
-        }
-      }
-    }
-  }
-}
-
-// share 基本樣式   ------------------------
+// share 基本樣式
 .share {
   box-sizing: border-box;
   margin: 0.5em 0;
@@ -198,8 +145,9 @@ div.function {
     @include liReset;
     display: flex;
     li {
-      margin: 0px 3px 3px;
-      flex: 0 0 32px;
+      // margin: 0px 3px 3px;
+      padding: 4px;
+      flex: 0 0 40px;
       a {
         display: block;
         height: 32px;
@@ -216,88 +164,18 @@ div.function {
     }
   }
 }
+
 // 放進functionPanel樣式
 .functionPanel {
-  .share {
-    box-sizing: border-box;
-    text-align: center;
-    height: 32px;
-    margin: 0 4px;
-    position: relative;
-    a.shareButton {
-      display: block;
-      background: #f1f1f1;
-      border-radius: 50%;
-      width: 32px;
-      height: 32px;
-      text-indent: -9999px;
-      text-align: center;
-      position: relative;
-      &:before {
-        content: '';
-        position: absolute;
-        width: 60%;
-        height: 60%;
-        top: 20%;
-        left: 20%;
-        background: url(../images/basic/icon_share.svg) no-repeat center center;
-        background-size: 24px;
-      }
-      // img {
-      //   width: 60%;
-      //   height: 60%;
-      //   margin: 20% auto;
-      // }
-      &:hover,
-      &:focus-visible {
-        background: $aHover;
-        // img {
-        //   filter: invert(100%);
-        // }
-        &:before {
-          filter: invert(100%);
-        }
-      }
-    }
-    ul {
-      display: none;
-      position: absolute;
-      top: 2.5em;
-      left: -6px;
-      // width: 44px;
-      padding: 6px;
-      background: #fff;
-      box-shadow: 2px 2px 5px RGBA(0, 0, 0, 0.2);
-      border-radius: 8px;
-      z-index: 999;
-      height: auto;
-      li {
-        display: block;
-        margin: 0 auto 0.5em;
-        &:last-child {
-          margin-bottom: 0;
-        }
-        img {
-          width: 100%;
-          height: 100%;
-          margin: 0 auto;
-        }
-        a {
-          background: transparent;
-          display: block;
-          padding: 0;
-          width: 32px;
-          height: 32px;
-          border-radius: 50%;
-          &:hover,
-          &:focus-visible {
-            background: transparent;
-            img {
-              filter: grayscale(1);
-            }
-          }
-        }
-      }
-    }
+  display: flex;
+  flex-flow: row wrap;
+  align-content: center;
+  .share,
+  .function{ flex: 1 1 50%; }
+  @include screen('mobile') {
+    .share,
+    .function{ flex: 1 1 100%; }
   }
 }
+
+// 放進functionPanel樣式

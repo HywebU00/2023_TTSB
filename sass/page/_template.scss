@@ -21,6 +21,9 @@ body {
     box-sizing: border-box;
   }
 }
+// .cp{
+//   backdrop-filter: blur(10px);
+// }
 // 最外圍預設為100%
 .wrapper {
   width: 100%;
@@ -46,7 +49,8 @@ body {
 }
 .main {
   position: relative;
-  margin: 0 auto 5em;
+  margin: 0 auto;
+  padding-bottom: 10em;
   // @include screen('mobile') {
   //   padding-top: 60px;
   // }
@@ -58,15 +62,66 @@ body {
 ////////////////////////////////////////////////////////////
 // 為了與首頁區隔，請在內頁加上innerPage ClassName
 .innerPage {
+  margin-top: -70px;
+  padding-top: 180px;
+  position: relative;
+  &::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 400px;
+    background: url(../images/hero1.jpg) 50% no-repeat;
+    background-size: cover;
+    z-index: -2;
+    top: 0;
+  }
+  &::after{
+    content: "";
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 300px;
+    top: 0;
+    background: url(../images/bg_mp_hero_bangs.png) left top repeat-x;
+  }
+  background: url(../images/bg_taiwan.png) -50px 460px no-repeat,
+              url(../images/bg_slogan.png) right 30px bottom 30px no-repeat;
+  // background-size: 680px 930px, auto;
+  // background-size: contain, contain;
+  background-attachment: fixed;
+  @include screen('notebook') {
+    background: url(../images/bg_taiwan.png) -40% 460px no-repeat,
+                url(../images/bg_slogan.png) right 30px bottom 30px no-repeat;
+    background-attachment: fixed;
+    background-size: auto, 60%;
+  }
+  @include screen('tablet') {
+    &::before,
+    &::after{
+      z-index: 1;
+    }
+  }
+
   & > .container {
     padding-top: 1em;
     @include gutter(); //gutter 代表左右要留白
     display: flex;
+
+    // background: url(../images/bg_slogan.png) right bottom no-repeat;
+    // background-attachment: fixed;
+
+    @include screen('tablet') {
+      @include gutter(40px);
+    }
+
   }
   .centerBlock {
     flex: none;
     flex-basis: 100%;
     max-width: 100%;
+    > .accessKey{
+      position: static;
+    }
   }
   .leftBlock {
     flex: none;
@@ -76,6 +131,17 @@ body {
     align-self: flex-start;
     position: sticky;
     top: 50px;
+
+    .menu{
+      background: rgba(0,99,198,.7);
+      padding: 1.5em 0;
+      backdrop-filter: blur(5px);
+      a{
+        color: #fff;
+        padding: 0 2em;
+      }
+    }
+
     &.hidden {
       & + .centerBlock {
         flex: none;
@@ -87,7 +153,14 @@ body {
       flex: auto;
       flex-basis: calc(100% - 300px);
       max-width: calc(100% - 300px);
+      margin-top: 260px;
+      backdrop-filter: blur(5px);
+
+      // > section{
+      //   backdrop-filter: blur(5px);
+      // }
     }
+    // backdrop-filter: blur(10px);
     @include screen('tablet') {
       display: none;
       & + .centerBlock {
@@ -97,6 +170,185 @@ body {
       }
     }
   }
+  // sp
+  .infoSlider{
+    &::before{
+      visibility: hidden;
+    }
+    .caption{
+      padding: 0 !important;
+      h3{}
+      p{}
+    }
+    a{
+      .caption{
+        h3{
+          color: #222;
+        }
+        p{
+          color: #666;
+        }
+      }
+    }
+  }
+}
+
+// .flex_2_col{
+//   display: flex;
+//   flex-wrap: nowrap;
+//   padding-bottom: 1.5em;
+//   align-items: center;
+//   .share,
+//   .function{
+//     flex: 1 1 50%;
+//   }
+//   @include screen('tablet') {
+//     flex-wrap: wrap;
+//     .share,
+//     .function{
+//       flex: 1 1 100%;
+//     }
+//     .function ul{ justify-content: flex-start; }
+//   }
+// }
+// 條件查詢
+.itemQuery{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  .switch,
+  form{
+    flex: 1 1 100%;
+  }
+  .switch{
+    max-width: 220px;
+  }
+  form{
+    background: #f4f4f4;
+    padding: 2em;
+    border-radius: 4px;
+    display: none;
+
+    &.active{
+      display: block;
+    }
+  }
+}
+// CP2 成員國－單一成員介紹
+.memberCard{
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: nowrap;
+  border-top: 1px solid #cacaca;
+  border-bottom: 1px solid #cacaca;
+  padding: 4em 0;
+  margin-bottom: 2em;
+  >.foto{
+    flex: 0 0 260px;
+    // .imgContainer3 {
+    //   border-radius: 6px 42px 42px;
+    //   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    // }
+  }
+  >.info{
+    flex: 1 1 auto;
+    flex-basis: calc(100% - 260px);
+    margin-right: 42px;
+
+    .col{
+      display: flex;
+      flex-wrap: nowrap;
+      margin-bottom: 30px;
+      &:last-child{
+        margin-bottom: 0;
+      }
+      .title{
+        font-weight: bold;
+        flex: 0 0 200px;
+        margin: 0;
+      }
+      .text{
+        flex: 1 1 auto;
+        flex-basis: calc(100% - 200px);
+        color: #707070;
+        // border-left: solid 1px #ddd;
+        // padding-left: 1.5em;
+
+        p{
+          line-height: 1.2;
+        }
+      }
+    }
+  }
+}
+// LP2 成員國列表
+.lp{
+  .pic{
+    margin: 0 0 3em;
+    position: relative;
+    figcaption{
+      padding: 2em;
+      position: absolute;
+      background: rgba(255,255,255,.95);
+      z-index: 1;
+      bottom: -2em;
+      right: 0;
+      width: 80%;
+      backdrop-filter: blur(5px);
+      border-radius: 2px;
+      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    }
+  }
+  .list {
+    ul,
+    ol{
+      padding: 2em 0;
+    }
+  }
+}
+
+.memberList{
+  ol{
+    @include liReset;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    border-top: 1px solid #cacaca;
+    box-shadow: inset 0 -1px 0 #cacaca;
+    li{
+      flex: 1 1 auto;
+      max-width: calc(100% / 3);
+      flex-basis: calc(100% / 3);
+      border-bottom: 1px solid #cacaca;
+      border-right: 1px solid #cacaca;
+
+      &:nth-child(3n){
+        border-right: none;
+      }
+      
+      a{
+        display: block;
+        text-align: center;
+        padding: 2em 4em;
+        color: #222;
+        font-weight: bold;
+        transition: .2s ease;
+        &:hover,
+        &:focus{
+          color: #fff;
+          background: darken($colorPrimary, 10);
+        }
+      }
+    }
+  }
+}
+.imgContainer2{
+  @include aspectRatio(16,9);
+}
+.imgContainer3{
+  @include aspectRatio(10,12);
+  border-radius: 6px 42px 42px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
 .hidden {
   display: none;

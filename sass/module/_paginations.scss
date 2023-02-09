@@ -1,5 +1,5 @@
 .pagination {
-  margin: 0.5em auto;
+  margin: 3em auto;
   padding: 0;
   display: block;
   text-align: center;
@@ -25,14 +25,14 @@
       flex: 0 0 40px;
       box-sizing: border-box;
       a {
-        border-radius: 5px;
+        border-radius: 50%;
         padding: 6px 10px;
         font-weight: 700;
         display: block;
         white-space: nowrap;
         font-size: 1em;
         color: $colorWord;
-        background: #eee;
+        background: #fff;
         border: #ccc solid 1px;
         margin: 0 0.1em 0.25em;
         &:hover,

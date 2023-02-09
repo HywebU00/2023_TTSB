@@ -118,8 +118,9 @@
       justify-content: flex-start;
       @include liReset;
       li {
-        flex: 1 1 16%;
-        max-width: 16%;
+        flex: 1 1 auto;
+        flex-basis: calc(100% / 6);
+        max-width: calc(100% / 6);
         box-sizing: border-box;
         a {
           line-height: 1.5;
@@ -165,7 +166,12 @@
           }
         }
       }
-
+      @include screen('tablet') {
+        li {
+          flex-basis: calc(100% / 3);
+          max-width: calc(100% / 3);
+        }
+      }
       @include screen('mobile') {
         li {
           flex: 1 1 90%;

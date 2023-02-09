@@ -1,6 +1,6 @@
 .category {
   text-align: left;
-  margin: 1em auto;
+  margin: 1em auto 3em;
   ul {
     @include liReset;
     display: flex;
@@ -13,11 +13,12 @@
   }
   a {
     border: 1px solid #aaa;
-    padding: 0.25em 0.75em;
+    padding: .5em 1.5em;
     display: block;
     color: #333;
     font-size: 0.875rem;
     box-sizing: border-box;
+    border-radius: 4px;
     &:before {
       content: '#';
       margin-right: 0.25em;

@@ -28,28 +28,40 @@
     }
     a {
       border: 1px solid #ddd;
-      padding: 1em 1em 1em 2.5em;
+      padding: 2em 2em 2em 5em;
       display: block;
       vertical-align: top;
       position: relative;
       height: 100%;
+      font-weight: bold;
       box-sizing: border-box;
       @include aSetting($colorWord);
+      transition: .3s ease-in-out;
       // @include textOverflow;
       .num {
+        // position: absolute;
+        // width: 1em;
+        // top: 1em;
+        // left: 0.5em;
+        // text-align: right;
         position: absolute;
         width: 1em;
-        top: 1em;
-        left: 0.5em;
-        text-align: right;
-        &:after {
-          content: '.';
-        }
+        top: 36%;
+        left: 20px;
+        text-align: center;
+        font-size: 3em;
+        color: rgba(0,0,0,.25);
+        font-weight: normal;
+        // &:after {
+        //   content: '.';
+        // }
       }
       &:hover,
       &:focus-visible {
-        border: 1px solid $aHover;
-        color: $aHover;
+        // border: 1px solid $aHover;
+        // color: $aHover;
+        color: #fff;
+        background: darken($colorPrimary, 10);
       }
     }
   }

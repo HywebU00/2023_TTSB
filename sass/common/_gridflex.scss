@@ -202,6 +202,9 @@ $mGutter: 4px;
   }
 }
 .flexEqual_3 {
+  .container{
+    @include gutter(0);
+  }
   .flexSet {
     .col {
       @include flexXsEqual(1, 0px);
@@ -212,10 +215,12 @@ $mGutter: 4px;
     }
     .thumbnail {
       margin-bottom: 30px;
+      border: solid 1px #e7e7e7;
+      clip-path: polygon(0 6%, 100% 0, 100% 100%, 0 100%);
       @include flexXsEqual(1, 0px);
-      @include flexSmEqual(2, $mGutter);
-      @include flexMdEqual(3, $mGutter);
-      @include flexLgEqual(3, $mGutter);
+      @include flexSmEqual(2, 20px);
+      @include flexMdEqual(3, 20px);
+      @include flexLgEqual(3, 20px);
       @include screen('mobile') {
         justify-content: center;
       }
