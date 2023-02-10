@@ -8710,9 +8710,6 @@ img {
   top: 15%;
   z-index: 80;
 }
-.mp .heroSlider .heroInfo a.more {
-  border: solid 1px rgba(255, 255, 255, 0.7);
-}
 @media screen and (max-width: 1199px) {
   .mp .heroSlider .heroInfo {
     right: 60px;
