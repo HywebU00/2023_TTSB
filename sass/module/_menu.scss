@@ -110,7 +110,7 @@
         display: none;
         overflow: visible;
         width: 100%;
-        background: rgba(0, 0, 0, 0.8);
+        background: rgba(0, 3, 6, .85);
         padding: 0;
         z-index: 999999;
         position: absolute;
@@ -124,13 +124,13 @@
         // 第二層選單樣式
         li {
           a {
-            padding: 0.6em 1.2em;
+            padding: .65em 1.2em;
             color: #fff;
             font-weight: bold;
             &:hover,
             &:focus-visible {
               color: #fff;
-              background: $aHover;
+              background: rgba(27,81,159,.6);
             }
           }
         }

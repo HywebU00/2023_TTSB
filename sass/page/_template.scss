@@ -134,16 +134,16 @@ body {
     z-index: 70;
 
     .menu {
-      background: rgba(0, 99, 198, 0.7);
-      padding: 1.5em 0;
-      backdrop-filter: blur(5px);
+      background: rgba(22, 75, 155, .85);
+      // padding: 1.5em 0;
+      // backdrop-filter: blur(5px);
       a {
         color: #fff;
-        padding: 0 2em;
+        padding: 4px 2em;
       }
       li li {
         a {
-          padding: 0.6em 1.2em;
+          padding: .95em 1.2em;
           color: #fff;
           font-weight: bold;
         }

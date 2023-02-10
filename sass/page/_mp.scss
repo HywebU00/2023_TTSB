@@ -254,7 +254,7 @@
       background: transparent;
       box-shadow: none;
       margin: 1.5em 0 0;
-      padding: 1.5em 0 3em;
+      // padding: 1.5em 0 3em;
       border-bottom: solid 1px #222;
       .deco {
         display: flex;
@@ -281,7 +281,6 @@
       &::after {
         display: none;
       }
-
       .deco_R {
         position: absolute;
         right: -50%;
@@ -296,28 +295,59 @@
       .thumbnail {
         flex: 0 1 32%;
         border-bottom: transparent;
-        filter: drop-shadow(0 0 29px rgba(100, 100, 111, 0.2));
+        background: #fff;
+        clip-path: polygon(0 6%, 100% 0, 100% 100%, 0 100%);
+        overflow: hidden;
+        border: solid 1px #bababa;
+        padding-bottom: 106px;
+        // filter: drop-shadow(0 0 29px rgba(100, 100, 111, 0.2));
+        // background: aqua;
+        padding-top: 3em;
         &:nth-child(2) {
           margin-left: 2%;
           margin-right: 2%;
         }
-        .deco {
-          flex-wrap: wrap;
-          // box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-          clip-path: polygon(0 6%, 100% 0, 100% 100%, 0 100%);
-          background: #fff;
-          .imgContainer,
-          .caption {
-            flex: 1 1 100%;
-          }
-          .caption {
-            padding: 4em 2em 2em;
-          }
-
-          .imgContainer + .caption {
-            padding-top: 2em;
-          }
+        .imgContainer{
+          margin-top: -3em;
         }
+        position: relative;
+        a.more{
+          position: absolute;
+          left: 0;
+          right: 0;
+          margin-left: auto;
+          margin-right: auto;
+          bottom: 0;
+        }
+        &:before{
+          content: '';
+          position: absolute;
+          width: 100%;
+          height: 1px;
+          background: #bababa;
+          z-index: 1;
+          left: -3px;
+          top: -1px;
+          transform-origin: top right;
+          transform: rotate(-5.7deg);
+        }
+        // .deco {
+        //   flex-wrap: wrap;
+        //   // box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        //   // clip-path: polygon(0 6%, 100% 0, 100% 100%, 0 100%);
+        //   // background: #fff;
+        //   .imgContainer,
+        //   .caption {
+        //     flex: 1 1 100%;
+        //   }
+        //   .caption {
+        //     padding: 4em 2em 2em;
+        //   }
+
+        //   .imgContainer + .caption {
+        //     padding-top: 2em;
+        //   }
+        // }
       }
     }
 
