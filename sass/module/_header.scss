@@ -22,16 +22,16 @@
   }
 }
 
-.wrapper{
-  .header{
-    .mainMenu{
-      position: absolute; 
+.wrapper {
+  .header {
+    .mainMenu {
+      position: absolute;
       visibility: hidden;
     }
   }
   &.mp {
-    .header{
-      .mainMenu{
+    .header {
+      .mainMenu {
         visibility: visible;
       }
     }
@@ -108,7 +108,7 @@
   z-index: 99;
   transition: 0.3s ease-out;
   // box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-  a{
+  a {
     color: #fff !important;
   }
   @include screen('tablet') {
@@ -151,7 +151,7 @@
       display: block;
       max-width: 160px;
       max-height: 160px;
-      transform: scale(.9);
+      transform: scale(0.9);
     }
     @include screen('tablet') {
       padding: 2px 60px;
@@ -160,7 +160,7 @@
       text-align: center;
       height: 60px;
       left: 0;
-      background: rgba(0,0,0,.5);
+      background: rgba(0, 0, 0, 0.5);
       backdrop-filter: blur(10px);
       img {
         width: auto;
@@ -244,8 +244,9 @@
     // left: 10px;
     display: block;
   }
+  &.active,
   &:hover,
-  &:focus {
+  &:focus-visible {
     background: darken($colorPrimary, 20);
     border-color: darken($colorPrimary, 20);
   }
@@ -253,7 +254,7 @@
     display: none;
   }
 }
-.webSearch {
+.desktopSearch {
   position: absolute;
   right: 0;
   top: 62px;

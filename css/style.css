@@ -2025,7 +2025,7 @@ img {
     display: block;
     width: auto;
   }
-  .no-js .webSearch noscript {
+  .no-js .desktopSearch noscript {
     margin-left: 1%;
     margin-right: 1%;
   }
@@ -3761,7 +3761,7 @@ img {
     content: "";
     display: block;
   }
-  .searchCtrl:hover, .searchCtrl:focus {
+  .searchCtrl.active, .searchCtrl:hover, .searchCtrl:focus-visible {
     background: #093664;
     border-color: #093664;
   }
@@ -3770,7 +3770,7 @@ img {
       display: none;
     }
   }
-  .webSearch {
+  .desktopSearch {
     position: absolute;
     right: 0;
     top: 62px;
@@ -3787,40 +3787,40 @@ img {
     transition: all 0.3s ease-in-out;
     transform: translateY(-150%);
   }
-  .webSearch.active {
+  .desktopSearch.active {
     transform: translateY(0%);
   }
   @media screen and (max-width: 991px) {
-    .webSearch {
+    .desktopSearch {
       display: none;
     }
   }
-  .webSearch label {
+  .desktopSearch label {
     font-size: 0em;
     position: absolute;
     z-index: -1;
   }
-  .webSearch .formGrp {
+  .desktopSearch .formGrp {
     flex: 0 0 auto;
     margin: 0;
     position: relative;
   }
-  .webSearch .formGrp input {
+  .desktopSearch .formGrp input {
     margin: 0;
     padding: 0.75em 120px 0.75em 2em;
     box-shadow: none;
     width: 100%;
   }
-  .webSearch .formGrp input[type=submit] {
+  .desktopSearch .formGrp input[type=submit] {
     min-width: auto;
     padding: 0.2em 0.8em;
   }
-  .webSearch .formGrp input:focus-visible {
+  .desktopSearch .formGrp input:focus-visible {
     box-shadow: 0 0px 0px 2px #1aadfa;
   }
-  .webSearch .formGrp button,
-  .webSearch .formGrp .btn,
-  .webSearch .formGrp .btnSearch {
+  .desktopSearch .formGrp button,
+  .desktopSearch .formGrp .btn,
+  .desktopSearch .formGrp .btnSearch {
     min-width: auto;
     width: 90px;
     padding: 0.75em 0;
@@ -3829,37 +3829,37 @@ img {
     position: absolute;
     right: 0;
   }
-  .webSearch .formGrp button:hover, .webSearch .formGrp button:focus-visible,
-  .webSearch .formGrp .btn:hover,
-  .webSearch .formGrp .btn:focus-visible,
-  .webSearch .formGrp .btnSearch:hover,
-  .webSearch .formGrp .btnSearch:focus-visible {
+  .desktopSearch .formGrp button:hover, .desktopSearch .formGrp button:focus-visible,
+  .desktopSearch .formGrp .btn:hover,
+  .desktopSearch .formGrp .btn:focus-visible,
+  .desktopSearch .formGrp .btnSearch:hover,
+  .desktopSearch .formGrp .btnSearch:focus-visible {
     box-shadow: none;
   }
-  .webSearch .btnGrp {
+  .desktopSearch .btnGrp {
     flex: 0 0 auto;
     padding: 0 0.5em 0;
     margin: 0;
   }
-  .webSearch .btnGrp button,
-  .webSearch .btnGrp .btn,
-  .webSearch .btnGrp .btnSearch {
+  .desktopSearch .btnGrp button,
+  .desktopSearch .btnGrp .btn,
+  .desktopSearch .btnGrp .btnSearch {
     min-width: auto;
     padding: 0.75em 2em;
     margin: 0;
   }
-  .webSearch .btnGrp button:hover, .webSearch .btnGrp button:focus-visible,
-  .webSearch .btnGrp .btn:hover,
-  .webSearch .btnGrp .btn:focus-visible,
-  .webSearch .btnGrp .btnSearch:hover,
-  .webSearch .btnGrp .btnSearch:focus-visible {
+  .desktopSearch .btnGrp button:hover, .desktopSearch .btnGrp button:focus-visible,
+  .desktopSearch .btnGrp .btn:hover,
+  .desktopSearch .btnGrp .btn:focus-visible,
+  .desktopSearch .btnGrp .btnSearch:hover,
+  .desktopSearch .btnGrp .btnSearch:focus-visible {
     box-shadow: none;
   }
-  .webSearch .keywordHot {
+  .desktopSearch .keywordHot {
     flex: 1 1 100%;
     margin-top: 1em;
   }
-  .webSearch .keywordHot ul {
+  .desktopSearch .keywordHot ul {
     font-size: 0.813em;
     line-height: 1.65em;
     margin: 0;
@@ -3868,20 +3868,20 @@ img {
     justify-content: center;
     list-style-type: none;
   }
-  .webSearch .keywordHot ul li {
+  .desktopSearch .keywordHot ul li {
     margin: 0;
     padding: 0.5em;
     flex: 0 0 auto;
   }
-  .webSearch .keywordHot ul a {
+  .desktopSearch .keywordHot ul a {
     text-decoration: none;
     color: #222;
   }
-  .webSearch .keywordHot ul a:hover, .webSearch .keywordHot ul a:focus-visible {
+  .desktopSearch .keywordHot ul a:hover, .desktopSearch .keywordHot ul a:focus-visible {
     color: #0094e0;
     cursor: pointer;
   }
-  .webSearch .keywordHot ul a:focus-visible {
+  .desktopSearch .keywordHot ul a:focus-visible {
     outline: #0094e0 2px solid;
   }
   .webSearchBg {
@@ -7110,6 +7110,7 @@ img {
     align-self: flex-start;
     position: sticky;
     top: 50px;
+    z-index: 70;
   }
   .innerPage .leftBlock .menu {
     background: rgba(0, 99, 198, 0.7);
@@ -7120,6 +7121,11 @@ img {
   .innerPage .leftBlock .menu a {
     color: #fff;
     padding: 0 2em;
+  }
+  .innerPage .leftBlock .menu li li a {
+    padding: 0.6em 1.2em;
+    color: #fff;
+    font-weight: bold;
   }
   .innerPage .leftBlock.hidden + .centerBlock {
     flex: none;
@@ -7162,20 +7168,22 @@ img {
     justify-content: flex-end;
   }
   .itemQuery .switch,
-  .itemQuery form {
+  .itemQuery .queryBox {
     flex: 1 1 100%;
   }
   .itemQuery .switch {
     max-width: 220px;
   }
-  .itemQuery form {
-    background: #f4f4f4;
-    padding: 2em;
-    border-radius: 4px;
+  .itemQuery .queryBox {
     display: none;
   }
-  .itemQuery form.active {
+  .itemQuery .queryBox.active {
     display: block;
+  }
+  .itemQuery form {
+    background: #f4f4f4;
+    border-radius: 4px;
+    padding: 2em;
   }
   .memberCard {
     display: flex;
@@ -7647,6 +7655,11 @@ img {
     transition: all 0.3s ease;
     z-index: 99;
     cursor: pointer;
+  }
+  @media screen and (min-width: 991px) {
+    .menuOverlay {
+      display: none !important;
+    }
   }
 }
 @layer secScss {

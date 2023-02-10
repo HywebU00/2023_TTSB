@@ -56,7 +56,7 @@
           <button type="button" class="btn searchCtrl" title="查詢">查詢</button>
           <!-- Search Start -->
           <!-- active 時，.heroInfo 下 style="z-index: 98;"  -->
-          <div class="webSearch" role="search">
+          <div class="desktopSearch webSearch" role="search">
             <div class="formGrp">
               <label for="mustSameAsId">搜尋</label>
               <input name="username" id="mustSameAsId" type="text" placeholder="請輸入文字" accesskey="S" title="請輸入文字" aria-label="搜尋網站內容" />
@@ -67,9 +67,9 @@
             </div>
             <div class="keywordHot">
               <ul>
-                <li><a href="#">熱門熱門</a></li>
-                <li><a href="#">查詢</a></li>
-                <li><a href="#">字詞三</a></li>
+                <li><a href="#1">熱門熱門</a></li>
+                <li><a href="#2">查詢</a></li>
+                <li><a href="#3">字詞三</a></li>
               </ul>
             </div>
           </div>
@@ -295,15 +295,33 @@
               <!-- 社群分享 -->
               <div class="share">
                 <ul>
-                  <li><a href="#"><img src="images/basic/icon_facebook.svg" alt="facebook" /></a></li>
-                  <li><a href="#"><img src="images/basic/icon_twitter.svg" alt="twitter" /></a></li>
-                  <li><a href="#"><img src="images/basic/icon_line.svg" alt="line" /></a></li>
-                  <li><a href="#"><img src="images/basic/icon_youtube.svg" alt="youtube" /></a></li>
-                  <li><a href="#"><img src="images/basic/icon_googleplus.svg" alt="google plus" /></a></li>
-                  <li><a href="#"><img src="images/basic/icon_instagram.svg" alt="instagram" /></a></li>
-                  <li><a href="#"><img src="images/basic/icon_linkedin.svg" alt="LinkedIn" /></a></li>
-                  <li><a href="#"><img src="images/basic/icon_rss.svg" alt="RSS" /></a></li>
-                  <li><a href="#"><img src="images/basic/icon_plurk.svg" alt="Plurk" /></a></li>
+                  <li>
+                    <a href="#"><img src="images/basic/icon_facebook.svg" alt="facebook" /></a>
+                  </li>
+                  <li>
+                    <a href="#"><img src="images/basic/icon_twitter.svg" alt="twitter" /></a>
+                  </li>
+                  <li>
+                    <a href="#"><img src="images/basic/icon_line.svg" alt="line" /></a>
+                  </li>
+                  <li>
+                    <a href="#"><img src="images/basic/icon_youtube.svg" alt="youtube" /></a>
+                  </li>
+                  <li>
+                    <a href="#"><img src="images/basic/icon_googleplus.svg" alt="google plus" /></a>
+                  </li>
+                  <li>
+                    <a href="#"><img src="images/basic/icon_instagram.svg" alt="instagram" /></a>
+                  </li>
+                  <li>
+                    <a href="#"><img src="images/basic/icon_linkedin.svg" alt="LinkedIn" /></a>
+                  </li>
+                  <li>
+                    <a href="#"><img src="images/basic/icon_rss.svg" alt="RSS" /></a>
+                  </li>
+                  <li>
+                    <a href="#"><img src="images/basic/icon_plurk.svg" alt="Plurk" /></a>
+                  </li>
                 </ul>
               </div>
               <!-- function功能區塊 -->
@@ -331,37 +349,39 @@
               <!-- 條件查詢 -->
               <div class="itemQuery">
                 <button type="button" class="btn btnSwitch">顯示條件查詢</button>
-                <form action="">
-                  <div class="flexForm formGrid">
-                    <div class="formGrp">
-                      <label for="address" class="formTitle">標題：</label>
-                      <div class="formContent">
-                        <input name="password" type="password" title="請輸入活動名稱" />
-                      </div>
-                    </div>
-                    <div class="formGrp">
-                      <div class="formTitle">發布日期：</div>
-                      <div class="formContent">
-                        <div class="datePick">
-                          <input name="" type="date" value="" class="calendar" placeholder="開始日期" title="開始日期" />
-                        </div>
-                        <div class="datePick">
-                          <input name="" type="date" value="" class="calendar" placeholder="結束日期" title="結束日期" />
+                <div class="queryBox">
+                  <form action="">
+                    <div class="flexForm formGrid">
+                      <div class="formGrp">
+                        <label for="address" class="formTitle">標題：</label>
+                        <div class="formContent">
+                          <input name="password" type="password" title="請輸入活動名稱" />
                         </div>
                       </div>
-                    </div>
-                    <div class="formGrp">
-                      <label for="address" class="formTitle">詳細地址</label>
-                      <div class="formContent">
-                        <textarea name="" id="address" cols="30" rows="10"></textarea>
+                      <div class="formGrp">
+                        <div class="formTitle">發布日期：</div>
+                        <div class="formContent">
+                          <div class="datePick">
+                            <input name="" type="date" value="" class="calendar" placeholder="開始日期" title="開始日期" />
+                          </div>
+                          <div class="datePick">
+                            <input name="" type="date" value="" class="calendar" placeholder="結束日期" title="結束日期" />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="formGrp">
+                        <label for="address" class="formTitle">詳細地址</label>
+                        <div class="formContent">
+                          <textarea name="" id="address" cols="30" rows="10"></textarea>
+                        </div>
+                      </div>
+                      <div class="btnGrp formInline">
+                        <button type="button" class="btn btnReset">清除</button>
+                        <button type="button" class="btn btnSubmit">送出</button>
                       </div>
                     </div>
-                    <div class="btnGrp formInline">
-                      <button type="button" class="btn btnReset">清除</button>
-                      <button type="button" class="btn btnSubmit">送出</button>
-                    </div>
-                  </div>
-                </form>
+                  </form>
+                </div>
               </div>
               <!-- category -->
               <div class="category">
@@ -625,7 +645,6 @@
               </a>
             </div>
           </div>
-          
         </div>
       </footer>
       <!-- footer End -->

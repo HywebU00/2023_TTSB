@@ -2,7 +2,7 @@
 // -----  nojs 先移除  ----------------------------------------------------
 // -----------------------------------------------------------------------
 
-const windowWidthSmall = 768;
+const windowWidthSmall = 990;
 const _webHtml = document.documentElement;
 _webHtml.classList.remove('no-js');
 
@@ -134,7 +134,7 @@ function jsFadeOut(element) {
     if (val >= 0) {
       element.style.opacity = val / 100;
       request = requestAnimationFrame(fade);
-    } else if (val > 0) {
+    } else if (val < 0) {
       setTimeout(() => {
         element.style = '';
       }, 300);
@@ -156,7 +156,7 @@ function jsSlideToggle(elem) {
     elem.offsetHeight;
     elem.style.transitionProperty = 'height';
     elem.style.transitionDuration = `300ms`;
-    elem.style.height = height + 'px';
+    elem.style.height = `${height}px`;
 
     clearTimeout(time2);
     let time = setTimeout(() => {
@@ -273,15 +273,21 @@ function menu() {
   mobileArea.append(cloneMenu);
 
   // --- 複製搜尋到手機版側欄
-  const search = document.querySelector('.webSearch');
-  if (search !== null) {
-    const cloneSearch = search.cloneNode(true);
-    cloneSearch.removeAttribute('style');
-    cloneSearch.classList.add('mobileSearch');
-    cloneSearch.classList.remove('webSearch');
-    // 取消手機版的focus行為
-    cloneSearch.querySelector('a, button, input[type="text"]').setAttribute('tabindex', '-1');
-    body.prepend(cloneSearch);
+
+  window.addEventListener('resize', mobileSearchFunction);
+  window.addEventListener('load', mobileSearchFunction);
+  function mobileSearchFunction() {
+    let windowWidth = window.outerWidth;
+    const search = document.querySelector('.webSearch');
+    if (search !== null && windowWidth < windowWidthSmall) {
+      search.removeAttribute('style');
+      search.classList.add('mobileSearch');
+      search.classList.remove('desktopSearch');
+    } else if (search !== null && windowWidth > windowWidthSmall) {
+      search.removeAttribute('style');
+      search.classList.remove('mobileSearch');
+      search.classList.add('desktopSearch');
+    }
   }
 }
 menu();
@@ -316,7 +322,7 @@ function topNav() {
 
 function mobileSearch(obj) {
   const searchCtrlBtn = obj.searchCtrlBtn;
-  const mobileSearch = document.querySelector('.mobileSearch');
+  const mobileSearch = document.querySelector('.webSearch');
   const menuOverlay = document.querySelector('.menuOverlay');
 
   searchCtrlBtn.addEventListener('click', (e) => {
@@ -395,87 +401,88 @@ function mainMenuSetup() {
   sidebar.style = `transform: translateX(${sidebarOut * -1}px)`;
 
   // --- 手機版選單開合功能
-  asideMenu.querySelectorAll('.hasChild > a').forEach((item, index) => {
-    let content = item.parentElement.querySelector('ul');
-    item.addEventListener('click', (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      toggleAccordion(item, index, content);
-      return;
-    });
+  menuAccordion(asideMenu);
+  // asideMenu.querySelectorAll('.hasChild > a').forEach((item, index) => {
+  //   let content = item.parentElement.querySelector('ul');
+  //   item.addEventListener('click', (e) => {
+  //     e.preventDefault();
+  //     e.stopPropagation();
+  //     toggleAccordion(item, index, content);
+  //     return;
+  //   });
 
-    item.addEventListener('keydown', (e) => {
-      // --- 頁籤第幾個按鈕觸發時
-      e.stopPropagation();
-      if (e.which === 9 && !e.shiftKey) {
-        //tab
-        toggleAccordion(item, index, content);
-      } else if (e.which === 9 && e.shiftKey) {
-        //shift+tab
-        toggleAccordion(item, index, content);
-      }
-    });
+  //   item.addEventListener('keydown', (e) => {
+  //     // --- 頁籤第幾個按鈕觸發時
+  //     e.stopPropagation();
+  //     if (e.which === 9 && !e.shiftKey) {
+  //       //tab
+  //       toggleAccordion(item, index, content);
+  //     } else if (e.which === 9 && e.shiftKey) {
+  //       //shift+tab
+  //       toggleAccordion(item, index, content);
+  //     }
+  //   });
 
-    function toggleAccordion(item, index, content) {
-      let display = window.getComputedStyle(content).display;
-      content.style.display = display;
+  //   function toggleAccordion(item, index, content) {
+  //     let display = window.getComputedStyle(content).display;
+  //     content.style.display = display;
 
-      if (display === 'none') {
-        display = 'block';
-        content.style.overflow = 'hidden';
-        content.style.display = display;
-        let height = content.offsetHeight;
-        content.style.height = 0;
-        content.offsetHeight;
-        content.style.transitionProperty = 'height';
-        content.style.transitionDuration = `300ms`;
-        content.style.height = height + 'px';
+  //     if (display === 'none') {
+  //       display = 'block';
+  //       content.style.overflow = 'hidden';
+  //       content.style.display = display;
+  //       let height = content.offsetHeight;
+  //       content.style.height = 0;
+  //       content.offsetHeight;
+  //       content.style.transitionProperty = 'height';
+  //       content.style.transitionDuration = `300ms`;
+  //       content.style.height = `${height}px`;
 
-        setTimeout(() => {
-          content.style.removeProperty('overflow');
-          content.style.removeProperty('height');
-          content.style.removeProperty('transition-duration');
-          content.style.removeProperty('transition-property');
-        }, 300);
-      } else {
-        content.style.overflow = 'hidden';
-        content.style.height = `${content.offsetHeight}px`;
-        content.style.transitionProperty = 'height';
-        content.style.transitionDuration = `300ms`;
-        content.offsetHeight;
-        content.style.height = 0;
-        setTimeout(() => {
-          content.style.display = 'none';
-          content.style.removeProperty('overflow');
-          content.style.removeProperty('height');
-          content.style.removeProperty('transition-duration');
-          content.style.removeProperty('transition-property');
-        }, 300);
-      }
+  //       setTimeout(() => {
+  //         content.style.removeProperty('overflow');
+  //         content.style.removeProperty('height');
+  //         content.style.removeProperty('transition-duration');
+  //         content.style.removeProperty('transition-property');
+  //       }, 300);
+  //     } else {
+  //       content.style.overflow = 'hidden';
+  //       content.style.height = `${content.offsetHeight}px`;
+  //       content.style.transitionProperty = 'height';
+  //       content.style.transitionDuration = `300ms`;
+  //       content.offsetHeight;
+  //       content.style.height = 0;
+  //       setTimeout(() => {
+  //         content.style.display = 'none';
+  //         content.style.removeProperty('overflow');
+  //         content.style.removeProperty('height');
+  //         content.style.removeProperty('transition-duration');
+  //         content.style.removeProperty('transition-property');
+  //       }, 300);
+  //     }
 
-      const siblings = Array.prototype.filter.call(item.parentElement.parentElement.children, (child) => {
-        return child !== item.parentElement;
-      });
-      siblings.forEach((v) => {
-        if (v.querySelector('ul') !== null) {
-          let con = v.querySelector('ul');
-          if (display !== 'none') {
-            con.style.height = `${con.offsetHeight}px`;
-            con.style.transitionProperty = 'height';
-            con.style.transitionDuration = `300ms`;
-            con.offsetHeight;
-            con.style.height = 0;
-            setTimeout(() => {
-              con.style.display = 'none';
-              con.style.removeProperty('height');
-              con.style.removeProperty('transition-duration');
-              con.style.removeProperty('transition-property');
-            }, 300);
-          }
-        }
-      });
-    }
-  });
+  //     const siblings = Array.prototype.filter.call(item.parentElement.parentElement.children, (child) => {
+  //       return child !== item.parentElement;
+  //     });
+  //     siblings.forEach((v) => {
+  //       if (v.querySelector('ul') !== null) {
+  //         let con = v.querySelector('ul');
+  //         if (display !== 'none') {
+  //           con.style.height = `${con.offsetHeight}px`;
+  //           con.style.transitionProperty = 'height';
+  //           con.style.transitionDuration = `300ms`;
+  //           con.offsetHeight;
+  //           con.style.height = 0;
+  //           setTimeout(() => {
+  //             con.style.display = 'none';
+  //             con.style.removeProperty('height');
+  //             con.style.removeProperty('transition-duration');
+  //             con.style.removeProperty('transition-property');
+  //           }, 300);
+  //         }
+  //       }
+  //     });
+  //   }
+  // });
 
   // --- 點擊選單按鈕 執行 展開側邊選單函式
   sidebarCtrlBtn.addEventListener('click', (e) => {
@@ -584,6 +591,90 @@ function mainMenuSetup() {
     });
   }
 }
+
+function menuAccordion(elem) {
+  elem.querySelectorAll('.hasChild > a').forEach((item, index) => {
+    let content = item.parentElement.querySelector('ul');
+    item.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      toggleAccordion(item, index, content);
+      return;
+    });
+
+    item.addEventListener('keydown', (e) => {
+      // --- 頁籤第幾個按鈕觸發時
+      e.stopPropagation();
+      if (e.which === 9 && !e.shiftKey) {
+        //tab
+        toggleAccordion(item, index, content);
+      } else if (e.which === 9 && e.shiftKey) {
+        //shift+tab
+        toggleAccordion(item, index, content);
+      }
+    });
+
+    function toggleAccordion(item, index, content) {
+      let display = window.getComputedStyle(content).display;
+      content.style.display = display;
+
+      if (display === 'none') {
+        display = 'block';
+        content.style.overflow = 'hidden';
+        content.style.display = display;
+        let height = content.offsetHeight;
+        content.style.height = 0;
+        content.offsetHeight;
+        content.style.transitionProperty = 'height';
+        content.style.transitionDuration = `300ms`;
+        content.style.height = `${height}px`;
+
+        setTimeout(() => {
+          content.style.removeProperty('overflow');
+          content.style.removeProperty('height');
+          content.style.removeProperty('transition-duration');
+          content.style.removeProperty('transition-property');
+        }, 300);
+      } else {
+        content.style.overflow = 'hidden';
+        content.style.height = `${content.offsetHeight}px`;
+        content.style.transitionProperty = 'height';
+        content.style.transitionDuration = `300ms`;
+        content.offsetHeight;
+        content.style.height = 0;
+        setTimeout(() => {
+          content.style.display = 'none';
+          content.style.removeProperty('overflow');
+          content.style.removeProperty('height');
+          content.style.removeProperty('transition-duration');
+          content.style.removeProperty('transition-property');
+        }, 300);
+      }
+
+      const siblings = Array.prototype.filter.call(item.parentElement.parentElement.children, (child) => {
+        return child !== item.parentElement;
+      });
+      siblings.forEach((v) => {
+        if (v.querySelector('ul') !== null) {
+          let con = v.querySelector('ul');
+          if (display !== 'none') {
+            con.style.height = `${con.offsetHeight}px`;
+            con.style.transitionProperty = 'height';
+            con.style.transitionDuration = `300ms`;
+            con.offsetHeight;
+            con.style.height = 0;
+            setTimeout(() => {
+              con.style.display = 'none';
+              con.style.removeProperty('height');
+              con.style.removeProperty('transition-duration');
+              con.style.removeProperty('transition-property');
+            }, 300);
+          }
+        }
+      });
+    }
+  });
+}
 mainMenuSetup();
 
 // -----------------------------------------------------------------------
@@ -650,8 +741,8 @@ function navSticky() {
 // -----  menu的無障礙tab設定 a11yKeyMenu  ---------------------------------
 // -----------------------------------------------------------------------
 
-function a11yKeyMenu() {
-  const mainMenu = document.querySelector('.mainMenu') || null;
+function a11yKeyMenu(elem) {
+  const mainMenu = document.querySelector(elem) || null;
 
   // --- keyup時
   const control = mainMenu.querySelectorAll('li');
@@ -688,7 +779,7 @@ function a11yKeyMenu() {
     });
   });
 }
-a11yKeyMenu();
+a11yKeyMenu('.mainMenu');
 
 // -----------------------------------------------------------------------
 // -----  notice訊息區塊   -------------------------------------------------
@@ -1578,7 +1669,7 @@ function accordionSlider(obj) {
       content.offsetHeight;
       content.style.transitionProperty = 'height';
       content.style.transitionDuration = `${duration}ms`;
-      content.style.height = height + 'px';
+      content.style.height = `${height}px`;
       item.querySelector('.accordionBtn').innerHTML = `${close}`;
       if (autoSlider) {
         const siblings = [...item.parentNode.parentNode.children].filter((child) => {
@@ -1771,33 +1862,104 @@ langFunction({
 });
 
 (function () {
+  // 內頁移除head中的主選單
+  const sideMenu = document.querySelector('.leftBlock') || null;
+  const innerMainMenu = document.querySelector('.header .mainMenu');
+  const innerHasChild = document.querySelectorAll('.leftBlock li ul') || null;
+  if (sideMenu !== null) {
+    innerMainMenu.remove();
+    innerHasChild.forEach((i) => {
+      i.parentNode.classList.add('hasChild');
+      i.parentNode.addEventListener('mouseenter', (e) => {
+        i.parentNode.classList.add('active');
+      });
+      i.parentNode.addEventListener('mouseleave', (e) => {
+        i.parentNode.classList.remove('active');
+      });
+    });
+    a11yKeyMenu('.leftBlock');
+  }
+
+  //上方搜尋功能
   const webSearch = document.querySelector('.wrapper .webSearch') || null;
-  const searchBtn = document.querySelector('.wrapper .searchCtrl') || null;
-  const heroInfo = document.querySelector('.mp .heroSlider .heroInfo') || null;
-  const searchItem = webSearch.querySelectorAll('a,input');
-  const mobileSearch = document.querySelector('.searchCtrlBtn');
-  const mainMenu = document.querySelector('.mainMenu');
+  const searchBtn = document.querySelector('.searchCtrl') || null;
+  const searchItem = webSearch.querySelectorAll('a,input') || null;
 
   searchBtn.addEventListener('click', searchOpen);
-  searchBtn.addEventListener('keydown', searchOpen);
   document.addEventListener('click', clickOtherPlace);
 
-  searchItem[searchItem.length - 1].addEventListener('focusout', function () {
-    webSearch.classList.remove('active');
+  searchBtn.addEventListener('keydown', function (e) {
+    e.stopPropagation();
+    if (e.which === 9 && !e.shiftKey) {
+      searchOpen();
+      searchBtn.removeEventListener('blur', searchOpen);
+      searchItem[searchItem.length - 1].addEventListener('blur', searchOpen), removeEventListener('blur', searchOpen);
+    } else if (e.which === 9 && e.shiftKey) {
+      searchBtn.addEventListener('blur', searchOpen);
+    }
   });
 
-  mobileSearch.addEventListener('click', function () {
-    webSearch.classList.remove('active');
+  searchItem[searchItem.length - 1].addEventListener('focus', function () {
+    if (e.which === 9 && e.shiftKey) {
+      searchBtn.addEventListener('blur', searchOpen);
+    }
   });
 
   function searchOpen() {
     webSearch.classList.toggle('active');
+    searchBtn.classList.toggle('active');
   }
   function clickOtherPlace(e) {
     if ((e.target.closest(`.wrapper .webSearch`) === null) & (e.target !== searchBtn)) {
       webSearch.classList.remove('active');
     } else {
       return;
+    }
+  }
+
+  //lp搜尋功能
+
+  let btnSwitch = document.querySelector('.btnSwitch') || null;
+  if (btnSwitch) {
+    btnSwitch.addEventListener('click', itemQueryFunction);
+    btnSwitch.addEventListener('keydown', itemQueryFunction);
+  }
+
+  function itemQueryFunction() {
+    let itemQuery = document.querySelector('.itemQuery .queryBox');
+    let display = window.getComputedStyle(itemQuery).display;
+    itemQuery.style.display = display;
+
+    if (display === 'none') {
+      display = 'block';
+      itemQuery.style.overflow = 'hidden';
+      itemQuery.style.display = display;
+      let height = itemQuery.scrollHeight;
+      itemQuery.style.height = 0;
+      itemQuery.scrollHeight;
+      itemQuery.style.transitionProperty = 'height';
+      itemQuery.style.transitionDuration = `300ms`;
+      itemQuery.style.height = `${height}px`;
+      setTimeout(() => {
+        itemQuery.style.removeProperty('overflow');
+        itemQuery.style.removeProperty('height');
+        itemQuery.style.removeProperty('transition-duration');
+        itemQuery.style.removeProperty('transition-property');
+      }, 300);
+    } else {
+      itemQuery.style.overflow = 'hidden';
+      itemQuery.style.height = `${itemQuery.scrollHeight}px`;
+      itemQuery.style.transitionProperty = 'height';
+      itemQuery.style.transitionDuration = `300ms`;
+      itemQuery.scrollHeight;
+      itemQuery.style.height = 0;
+      setTimeout(() => {
+        itemQuery.style.display = 'none';
+        itemQuery.style.removeProperty('overflow');
+        itemQuery.style.removeProperty('height');
+        itemQuery.style.removeProperty('transition-duration');
+        itemQuery.style.removeProperty('transition-property');
+      }, 300);
     }
   }
 })();
