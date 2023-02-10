@@ -84,16 +84,19 @@ body {
     top: 0;
     background: url(../images/bg_mp_hero_bangs.png) left top repeat-x;
   }
-  background: url(../images/bg_taiwan.png) -50px 460px no-repeat, url(../images/bg_slogan.png) right 30px bottom 30px no-repeat;
+  background: url(../images/bg_taiwan.png) -110px 460px no-repeat, url(../images/bg_slogan.png) right 30px bottom 30px no-repeat;
   // background-size: 680px 930px, auto;
   // background-size: contain, contain;
   background-attachment: fixed;
   @include screen('notebook') {
-    background: url(../images/bg_taiwan.png) -40% 460px no-repeat, url(../images/bg_slogan.png) right 30px bottom 30px no-repeat;
+    background: url(../images/bg_taiwan.png) -260px 460px no-repeat, url(../images/bg_slogan.png) right 30px bottom 30px no-repeat;
     background-attachment: fixed;
-    background-size: auto, 60%;
+    background-size: 640px, 60%;
   }
   @include screen('tablet') {
+    background: url(../images/bg_taiwan.png) -420px 460px no-repeat, url(../images/bg_slogan.png) right 30px bottom 30px no-repeat;
+    background-attachment: fixed;
+    background-size: 540px, 70%;
     &::before,
     &::after {
       z-index: 1;

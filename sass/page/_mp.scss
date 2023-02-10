@@ -40,6 +40,10 @@
   h2.title {
     text-align: center;
     margin: 0 0 1.25em;
+
+    @include screen('tablet') {
+      margin: 1.25em 0;
+    }
   }
   .swiperDots {
     margin-top: 20px;
@@ -177,10 +181,11 @@
     }
     .deco_L {
       position: absolute;
-      left: -240px;
+      left: 0;
       top: -40%;
       width: 900px;
       z-index: -1;
+      transform: translateX(-30%);
     }
     .deco_R {
       position: absolute;

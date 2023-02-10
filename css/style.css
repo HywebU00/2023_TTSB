@@ -7042,7 +7042,7 @@ img {
     margin-top: -70px;
     padding-top: 180px;
     position: relative;
-    background: url(../images/bg_taiwan.png) -50px 460px no-repeat, url(../images/bg_slogan.png) right 30px bottom 30px no-repeat;
+    background: url(../images/bg_taiwan.png) -110px 460px no-repeat, url(../images/bg_slogan.png) right 30px bottom 30px no-repeat;
     background-attachment: fixed;
   }
   .innerPage::before {
@@ -7066,12 +7066,17 @@ img {
   }
   @media screen and (max-width: 1439px) {
     .innerPage {
-      background: url(../images/bg_taiwan.png) -40% 460px no-repeat, url(../images/bg_slogan.png) right 30px bottom 30px no-repeat;
+      background: url(../images/bg_taiwan.png) -260px 460px no-repeat, url(../images/bg_slogan.png) right 30px bottom 30px no-repeat;
       background-attachment: fixed;
-      background-size: auto, 60%;
+      background-size: 640px, 60%;
     }
   }
   @media screen and (max-width: 991px) {
+    .innerPage {
+      background: url(../images/bg_taiwan.png) -420px 460px no-repeat, url(../images/bg_slogan.png) right 30px bottom 30px no-repeat;
+      background-attachment: fixed;
+      background-size: 540px, 70%;
+    }
     .innerPage::before, .innerPage::after {
       z-index: 1;
     }
@@ -8622,6 +8627,11 @@ img {
   text-align: center;
   margin: 0 0 1.25em;
 }
+@media screen and (max-width: 991px) {
+  .mp h2.title {
+    margin: 1.25em 0;
+  }
+}
 .mp .swiperDots {
   margin-top: 20px;
 }
@@ -8741,10 +8751,11 @@ img {
 }
 .mp .linkList .deco_L {
   position: absolute;
-  left: -240px;
+  left: 0;
   top: -40%;
   width: 900px;
   z-index: -1;
+  transform: translateX(-30%);
 }
 .mp .linkList .deco_R {
   position: absolute;
