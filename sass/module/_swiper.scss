@@ -61,14 +61,18 @@
   padding: 15px 10px;
   margin: 0;
   border-radius: 0;
-  width: 60px;
-  height: 60px;
+  width: 72px;
+  height: 72px;
   // background: rgba(255, 255, 255, 0.4);
   border: none;
   z-index: 9;
   display: flex;
   align-items: center;
   justify-content: center;
+  background: rgba(255,255,255,.25);
+  // backdrop-filter: blur(3px);
+  border: transparent;
+  transition: .2s;
   &::before {
     content: '';
     width: 36px;
@@ -87,6 +91,12 @@
   }
   &.swiperArrow-disabled {
     opacity: 0.3;
+  }
+
+  &:hover,
+  &:focus-visible{
+    background: rgba(255,255,255,.45);
+    border: 1px solid #d8d8d8;
   }
 }
 

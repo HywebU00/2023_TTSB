@@ -84,23 +84,31 @@ body {
     top: 0;
     background: url(../images/bg_mp_hero_bangs.png) left top repeat-x;
   }
-  background: url(../images/bg_taiwan.png) -110px 460px no-repeat, url(../images/bg_slogan.png) right 30px bottom 30px no-repeat;
-  // background-size: 680px 930px, auto;
-  // background-size: contain, contain;
+  background: url(../images/bg_taiwan.png) -5% 460px no-repeat, 
+              url(../images/bg_slogan.png) right 30px bottom 30px no-repeat;
+  background-size: 550px, auto;
   background-attachment: fixed;
   @include screen('notebook') {
-    background: url(../images/bg_taiwan.png) -260px 460px no-repeat, url(../images/bg_slogan.png) right 30px bottom 30px no-repeat;
+    background: url(../images/bg_taiwan.png) -24% 460px no-repeat, 
+                url(../images/bg_slogan.png) right 30px bottom 30px no-repeat;
     background-attachment: fixed;
-    background-size: 640px, 60%;
+    background-size: 450px, 60%;
   }
   @include screen('tablet') {
-    background: url(../images/bg_taiwan.png) -420px 460px no-repeat, url(../images/bg_slogan.png) right 30px bottom 30px no-repeat;
+    background: url(../images/bg_taiwan.png) left 0 bottom 30px no-repeat, 
+                url(../images/bg_slogan.png) right 30px bottom 30px no-repeat;
     background-attachment: fixed;
-    background-size: 540px, 70%;
+    background-size: 30%, 60%;
     &::before,
     &::after {
       z-index: 1;
     }
+  }
+  @include screen('mobile') {
+    background: url(../images/bg_taiwan.png) left 0 bottom 30px no-repeat, 
+                url(../images/bg_slogan.png) right 30px bottom 30px no-repeat;
+    background-attachment: fixed;
+    background-size: 30%, 60%;
   }
 
   & > .container {
@@ -223,6 +231,7 @@ body {
 // }
 // 條件查詢
 .itemQuery {
+  padding: 2em 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
@@ -240,7 +249,7 @@ body {
     }
   }
   form {
-    background: #f4f4f4;
+    background: #F5F4F4;
     border-radius: 4px;
     padding: 2em;
   }
@@ -284,11 +293,37 @@ body {
         color: #707070;
         // border-left: solid 1px #ddd;
         // padding-left: 1.5em;
-
         p {
           line-height: 1.2;
         }
       }
+    }
+  }
+
+  @media screen and (max-width: 1200px) {
+    > .info {
+      .col {
+        flex-wrap: wrap;
+        .title,
+        .text {
+          flex: 1 1 100%;
+        }
+        .title{
+          margin-bottom: 1em;
+        }
+      }
+    }
+  }
+  @include screen('mobile') {
+    flex-direction: row;
+    flex-wrap: wrap;
+    > .foto{
+      flex-basis: 100%;
+      margin-bottom: 2em;
+    }
+    > .info{
+      flex-basis: 100%;
+      margin-right: 0;
     }
   }
 }

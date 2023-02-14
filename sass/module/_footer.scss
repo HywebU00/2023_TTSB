@@ -11,6 +11,8 @@ footer {
     display: flex;
     @include screen('tablet') {
       flex-wrap: wrap;
+      justify-content: center;
+      @include gutter(40px);
     }
   }
   a {
@@ -36,12 +38,17 @@ footer {
       // background: pink;
       position: absolute;
       right: 0;
-      top: 0;
+      top: 2em;
       // flex: 0 1 200px;
       // @include screen('tablet') {
       //   flex: 1 1 100%;
       //   text-align: right;
       // }
+
+      @include screen('tablet') {
+        position: static;
+        margin-top: 2em;
+      }
     }
   }
   // 版權連結

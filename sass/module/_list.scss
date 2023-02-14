@@ -64,6 +64,7 @@
         display: inline-block;
         font-size: 0.938em;
         font-weight: normal;
+        padding-right: 1em;
         @include screen('mobile') {
           display: block;
         }
@@ -72,7 +73,6 @@
         color: #aaa;
         font-size: 0.938em;
         font-weight: normal;
-        padding: 0 1em;
       }
     }
   }

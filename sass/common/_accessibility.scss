@@ -16,7 +16,7 @@ a:focus-visible {
   z-index: 9;
   color: $colorWord;
   font-size: $fontSize;
-  @include screen('mobile') {
+  @include screen('tablet') {
     display: none;
   }
 }

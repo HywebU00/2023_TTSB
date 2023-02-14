@@ -134,6 +134,7 @@ h2.title {
     }
     .fileType{
       display: flex;
+      flex-wrap: wrap;
       > span {
         flex: 0 0 auto;
         margin: 0.2em;

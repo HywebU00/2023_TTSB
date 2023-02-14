@@ -6,8 +6,10 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>CP 成員國介紹</title>
+    <title>NP</title>
 
+    <!-- 燈箱fancybox -->
+    <link rel="stylesheet" type="text/css" href="vendor/fancybox/jquery.fancybox.min.css" />
     <!-- style css -->
     <link rel="stylesheet" href="css/style.css" />
     <!-- favicon -->
@@ -56,7 +58,7 @@
           <button type="button" class="btn searchCtrl" title="查詢">查詢</button>
           <!-- Search Start -->
           <!-- active 時，.heroInfo 下 style="z-index: 98;"  -->
-          <div class="desktopSearch webSearch" role="search">
+          <div class="webSearch" role="search">
             <div class="formGrp">
               <label for="mustSameAsId">搜尋</label>
               <input name="username" id="mustSameAsId" type="text" placeholder="請輸入文字" accesskey="S" title="請輸入文字" aria-label="搜尋網站內容" />
@@ -177,9 +179,9 @@
       <!-- main Start -->
       <main id="center" class="main innerPage">
         <!-- 內頁新增一個classname-->
+        <a class="accessKey" href="#aC" id="aC" accesskey="C" title="主要內容區">:::</a>
         <div class="container">
-          <!-- 左側 -->
-          <!-- 如果不要sticky效果，就移除.innerPage .leftBlock{position: sticky;} -->
+          <!-- 如果不要sticky效果，就移除stickySidebar classname -->
           <aside class="leftBlock">
             <nav class="menu mainMenu" role="navigation" aria-label="About page">
               <ul>
@@ -280,7 +282,6 @@
           </aside>
           <!-- 主要內容區 -->
           <div class="centerBlock">
-            <a class="accessKey" href="#aC" id="aC" accesskey="C" title="主要內容區">:::</a>
             <!-- breadcrumb路徑 -->
             <nav aria-label="Breadcrumb" class="breadcrumb">
               <ul>
@@ -289,39 +290,22 @@
                 <li aria-current="page">節點</li>
               </ul>
             </nav>
-            <h2 class="title">Dr. Hong, Young</h2>
+            <!-- h2節點 -->
+            <h2 class="title">節點標題</h2>
             <!-- function -->
             <div class="functionPanel">
               <!-- 社群分享 -->
               <div class="share">
                 <ul>
-                  <li>
-                    <a href="#"><img src="images/basic/icon_facebook.svg" alt="facebook" /></a>
-                  </li>
-                  <li>
-                    <a href="#"><img src="images/basic/icon_twitter.svg" alt="twitter" /></a>
-                  </li>
-                  <li>
-                    <a href="#"><img src="images/basic/icon_line.svg" alt="line" /></a>
-                  </li>
-                  <li>
-                    <a href="#"><img src="images/basic/icon_youtube.svg" alt="youtube" /></a>
-                  </li>
-                  <li>
-                    <a href="#"><img src="images/basic/icon_googleplus.svg" alt="google plus" /></a>
-                  </li>
-                  <li>
-                    <a href="#"><img src="images/basic/icon_instagram.svg" alt="instagram" /></a>
-                  </li>
-                  <li>
-                    <a href="#"><img src="images/basic/icon_linkedin.svg" alt="LinkedIn" /></a>
-                  </li>
-                  <li>
-                    <a href="#"><img src="images/basic/icon_rss.svg" alt="RSS" /></a>
-                  </li>
-                  <li>
-                    <a href="#"><img src="images/basic/icon_plurk.svg" alt="Plurk" /></a>
-                  </li>
+                  <li><a href="#"><img src="images/basic/icon_facebook.svg" alt="facebook" /></a></li>
+                  <li><a href="#"><img src="images/basic/icon_twitter.svg" alt="twitter" /></a></li>
+                  <li><a href="#"><img src="images/basic/icon_line.svg" alt="line" /></a></li>
+                  <li><a href="#"><img src="images/basic/icon_youtube.svg" alt="youtube" /></a></li>
+                  <li><a href="#"><img src="images/basic/icon_googleplus.svg" alt="google plus" /></a></li>
+                  <li><a href="#"><img src="images/basic/icon_instagram.svg" alt="instagram" /></a></li>
+                  <li><a href="#"><img src="images/basic/icon_linkedin.svg" alt="LinkedIn" /></a></li>
+                  <li><a href="#"><img src="images/basic/icon_rss.svg" alt="RSS" /></a></li>
+                  <li><a href="#"><img src="images/basic/icon_plurk.svg" alt="Plurk" /></a></li>
                 </ul>
               </div>
               <!-- function功能區塊 -->
@@ -333,148 +317,42 @@
                 </ul>
               </div>
             </div>
-            <!-- CP Start -->
-            <section class="cp">
-              <div class="memberCard">
-                <div class="foto">
-                  <div class="imgContainer3"><img src="images/member_1.jpg" class="cover" /></div>
-                </div>
-                <div class="info">
-                  <div class="col">
-                    <div class="title">Education</div>
-                    <div class="text">
-                      <p>National Taiwan University, Department of Mechanical Engineering, BSc</p>
-                      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat, natus explicabo harum rem laboriosam odio delectus</p>
-                    </div>
-                  </div>
-                  <div class="col">
-                    <div class="title">Specialty</div>
-                    <div class="text">
-                      <p>National Taiwan University, Department of Mechanical Engineering, BSc</p>
-                      <p>National Taiwan University, Department of Mechanical Engineering, BSc</p>
-                    </div>
-                  </div>
-                  <div class="col">
-                    <div class="title">Work Experiences</div>
-                    <div class="text">
-                      <p>National Taiwan University, Department of Mechanical Engineering, BSc</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- file download 檔案下載 -->
-              <div class="fileDownload">
-                <h3>檔案下載</h3>
-                <ul>
-                  <li>
-                    <span class="fileName">檔案名稱</span>
-                    <!-- 設flex -->
-                    <div class="fileType">
-                      <span class="file_doc"><a href="xxxx.doc">doc</a></span>
-                      <span class="file_docx"><a href="xxx.docx">docx</a></span>
-                      <span class="file_odt"><a href="xxxx.odt">odt</a></span>
-                    </div>
-                  </li>
-                  <li>
-                    <span class="fileName">檔案名稱檔案名稱</span>
-                    <!-- 設flex -->
-                    <div class="fileType">
-                      <span class="file_xls"><a href="xxxx.xls">xls</a></span>
-                      <span class="file_xlsx"><a href="xxxx.xlsx">xlsx</a></span>
-                      <span class="file_csv"><a href="xxxx.csv">csv</a></span>
-                      <span class="file_ods"><a href="xxxx.ods">ods</a></span>
-                    </div>
-                  </li>
-                  <li>
-                    <span class="fileName">檔案名稱</span>
-                    <!-- 設flex -->
-                    <div class="fileType">
-                      <span class="file_ppt"><a href="xxxx.ppt">ppt</a></span>
-                      <span class="file_pptx"><a href="xxxx.pptx">pptx</a></span>
-                      <span class="file_odp"><a href="xxxx.odp">odp</a></span>
-                    </div>
-                  </li>
-                  <li>
-                    <span class="fileName">檔案名稱</span>
-                    <!-- 設flex -->
-                    <div class="fileType">
-                      <span class="file_pdf"><a href="xxxx.pdf">pdf</a></span>
-                      <span class="file_zip"><a href="xxxx.zip">zip</a></span>
-                      <span class="file_txt"><a href="xxxx.txt">txt</a></span>
-                      <span class="file_mov"><a href="xxxx.mov">mov</a></span>
-                      <span class="file_mp3"><a href="xxxx.mp3">mp3</a></span>
-                      <span class="file_jpg"><a href="xxxx.jpg">jpg</a></span>
-                      <span class="file_wmv"><a href="xxxx.wmv">wmv</a></span>
-                      <span class="file_mp4"><a href="xxxx.mp4">mp4</a></span>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-              <!-- 相關圖檔 -->
-              <div class="cpSlider">
-                <h3>相關圖檔（燈箱照片）</h3>
-                <div class="swiperBox">
-                  <div class="swiper">
-                    <div class="swiper-wrapper">
-                      <div class="imgContainer swiper-slide">
-                        <a href="images/demo/06.jpg" data-fancybox="gallery" data-caption="第1張圖說" data-alt="第1張圖說">
-                          <img src="images/demo/06.jpg" alt="第1張圖說" />
-                          <noscript><img src="images/demo/06.jpg" alt="第1張圖說" /></noscript>
-                          <span class="caption">第1張圖說</span>
-                        </a>
-                      </div>
-
-                      <div class="imgContainer swiper-slide">
-                        <a href="images/demo/07.jpg" data-fancybox="gallery" data-caption="第2張圖說" data-alt="第2張圖說">
-                          <img src="images/demo/07.jpg" alt="第2張圖說" />
-                          <noscript><img src="images/demo/07.jpg" alt="第2張圖說" /></noscript>
-                          <span class="caption">第2張圖說</span>
-                        </a>
-                      </div>
-                      <div class="imgContainer swiper-slide">
-                        <a href="images/demo/08.jpg" data-fancybox="gallery" data-caption="第3張圖說" data-alt="第3張圖說">
-                          <img src="images/demo/08.jpg" alt="第3張圖說" />
-                          <noscript><img src="images/demo/08.jpg" alt="第3張圖說" /></noscript>
-                          <span class="caption">第3張圖說</span>
-                        </a>
-                      </div>
-                      <div class="imgContainer swiper-slide">
-                        <a href="images/demo/10.jpg" data-fancybox="gallery" data-caption="第4張圖說" data-alt="第4張圖說">
-                          <img src="images/demo/10.jpg" alt="第4張圖說" />
-                          <noscript><img src="images/demo/10.jpg" alt="第4張圖說" /></noscript>
-                          <span class="caption">第4張圖說</span>
-                        </a>
-                      </div>
-                      <div class="imgContainer swiper-slide">
-                        <a href="images/demo/12.jpg" data-fancybox="gallery" data-caption="第5張圖說" data-alt="第5張圖說">
-                          <img src="images/demo/12.jpg" alt="第5張圖說" />
-                          <noscript><img src="images/demo/12.jpg" alt="第5張圖說" /></noscript>
-                          <span class="caption">第5張圖說</span>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- swiper 左邊箭頭-->
-                  <button class="prevSlider swiperArrow"></button>
-                  <!-- swiper 右邊箭頭-->
-                  <button class="nextSlider swiperArrow"></button>
-                  <!-- swiper 點切換-->
-                  <div class="swiperDots"></div>
-                </div>
-              </div>
-              <!-- weblink 外部連結 -->
-              <div class="webLink">
-                <h3>外部連結</h3>
-                <ol>
-                  <li><a href="javscript:;">外部連結1</a></li>
-                  <li><a href="javscript:;">外部連結2</a></li>
-                  <li><a href="javscript:;">外部連結3</a></li>
-                  <li><a href="javscript:;">外部連結4</a></li>
-                  <li><a href="javscript:;">外部連結5</a></li>
-                </ol>
-              </div>
+            <!-- NP Start -->
+            <section class="submenu">
+              <ul>
+                <li>
+                  <a href="#"><span class="num">1</span>節點1節點1節點1節點1節點1節點1節點1節點1節點1節點1節點1節點1節點1節點1節點1節點1節點1</a>
+                </li>
+                <li>
+                  <a href="#"><span class="num">2</span>節點2</a>
+                </li>
+                <li>
+                  <a href="#"><span class="num">3</span>節點3</a>
+                </li>
+                <li>
+                  <a href="#"><span class="num">4</span>節點4</a>
+                </li>
+                <li>
+                  <a href="#"><span class="num">5</span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis, sequi temporibus.</a>
+                </li>
+                <li>
+                  <a href="#"><span class="num">6</span>節點6</a>
+                </li>
+                <li>
+                  <a href="#"><span class="num">7</span>節點7</a>
+                </li>
+                <li>
+                  <a href="#"><span class="num">8</span>節點8</a>
+                </li>
+                <li>
+                  <a href="#"><span class="num">9</span>節點9</a>
+                </li>
+                <li>
+                  <a href="#"><span class="num">10</span>節點10</a>
+                </li>
+              </ul>
             </section>
-            <!-- CP End -->
+            <!-- NP End -->
           </div>
         </div>
       </main>
@@ -600,6 +478,7 @@
               </a>
             </div>
           </div>
+          
         </div>
       </footer>
       <!-- footer End -->
