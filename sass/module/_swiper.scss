@@ -169,3 +169,20 @@
     }
   }
 }
+
+.Syncing_slider{
+  .pagination{
+    margin: 2em auto;
+    font-size: 80%;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    span{
+      color: #222;
+      margin: 0 10px;
+    }
+  }
+  .swiper-pagination-current {
+    font-size: 200%;
+  }
+}

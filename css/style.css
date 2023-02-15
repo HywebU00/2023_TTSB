@@ -3356,6 +3356,7 @@ img {
   .tag ul li a {
     display: block;
     font-size: 0.938em;
+    background: #fff;
     text-decoration: none;
     color: #222;
     border: 1px solid #ddd;
@@ -4055,7 +4056,6 @@ img {
     display: block;
     outline: none;
     text-decoration: none;
-    font-size: 110%;
   }
   .mainMenu ul li ul {
     display: none;
@@ -6067,7 +6067,7 @@ img {
   }
   .list > ul > li > a .num,
   .list ol > li > a .num {
-    width: 1.5em;
+    width: 2em;
     text-align: right;
     position: absolute;
     top: 0;
@@ -6089,6 +6089,7 @@ img {
     font-size: 0.938em;
     font-weight: normal;
     padding-right: 1em;
+    color: #222;
   }
   @media screen and (max-width: 767px) {
     .list > ul > li span.dept,
@@ -6130,9 +6131,8 @@ img {
   }
   .submenu li a {
     border: 1px solid #ddd;
-    padding: 2em 2em 2em 5em;
+    padding: 2em 2em 2em 6em;
     display: block;
-    vertical-align: top;
     position: relative;
     height: 100%;
     font-weight: bold;
@@ -6153,6 +6153,7 @@ img {
     width: 1em;
     top: 36%;
     left: 20px;
+    letter-spacing: -5px;
     text-align: center;
     font-size: 3em;
     color: rgba(0, 0, 0, 0.25);
@@ -6805,7 +6806,7 @@ img {
     background: transparent;
     color: #222;
     padding: 0 0.75em;
-    margin: 0 0.2em 0.1em;
+    margin: 0.25em;
   }
   .sitemap p kbd kbd {
     border: none;
@@ -7158,7 +7159,7 @@ img {
   }
   .innerPage .leftBlock .menu a {
     color: #fff;
-    padding: 4px 2em;
+    padding: 5px 2em;
   }
   .innerPage .leftBlock .menu li li a {
     padding: 0.95em 1.2em;
@@ -7175,8 +7176,8 @@ img {
     flex-basis: calc(100% - 300px);
     max-width: calc(100% - 300px);
     margin-top: 260px;
-    -webkit-backdrop-filter: blur(5px);
-            backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
   }
   @media screen and (max-width: 991px) {
     .innerPage .leftBlock {
@@ -7191,14 +7192,41 @@ img {
   .innerPage .infoSlider::before {
     visibility: hidden;
   }
+  .innerPage .infoSlider .swiper-slide {
+    margin: 4px;
+  }
   .innerPage .infoSlider .caption {
     padding: 0 !important;
+    background: pink;
+  }
+  .innerPage .infoSlider .caption::before {
+    content: "";
+    width: 0;
+    height: 2px;
+    background: #0f5aa6;
+    position: absolute;
+    bottom: 0;
+    transition: 0.2s ease;
+  }
+  .innerPage .infoSlider a {
+    display: block;
   }
   .innerPage .infoSlider a .caption h3 {
+    margin-bottom: 0;
     color: #222;
   }
   .innerPage .infoSlider a .caption p {
     color: #666;
+    margin: 0;
+    padding: 1em 0;
+    transition: 0.2s ease;
+  }
+  .innerPage .infoSlider a:hover .caption::before, .innerPage .infoSlider a:focus-visible .caption::before {
+    width: 100%;
+  }
+  .innerPage .infoSlider a:hover .caption p, .innerPage .infoSlider a:focus-visible .caption p {
+    color: #0f5aa6;
+    font-weight: bold;
   }
   .itemQuery {
     padding: 2em 0;
@@ -7332,7 +7360,7 @@ img {
   .memberList ol li a {
     display: block;
     text-align: center;
-    padding: 2em 4em;
+    padding: 2em 3em;
     color: #222;
     font-weight: bold;
     transition: 0.2s ease;
@@ -7340,6 +7368,21 @@ img {
   .memberList ol li a:hover, .memberList ol li a:focus {
     color: #fff;
     background: #0d5093;
+  }
+  @media screen and (max-width: 1299px) {
+    .memberList ol li {
+      max-width: 50%;
+      flex-basis: 50%;
+    }
+    .memberList ol li a {
+      padding: 2em 1em;
+    }
+    .memberList ol li:nth-child(3n) {
+      border-right: 1px solid #cacaca;
+    }
+    .memberList ol li:nth-child(2n+2) {
+      border-right: none;
+    }
   }
   .imgContainer2 {
     overflow: hidden;
@@ -8099,6 +8142,21 @@ img {
      object-fit: cover;
 }
 
+.Syncing_slider .pagination {
+  margin: 2em auto;
+  font-size: 80%;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+.Syncing_slider .pagination span {
+  color: #222;
+  margin: 0 10px;
+}
+.Syncing_slider .swiper-pagination-current {
+  font-size: 200%;
+}
+
 .colorA a:hover {
   color: #298729;
 }
@@ -8704,6 +8762,7 @@ a.moreType2 {
   color: #222;
   border-top: 1px solid #ddd;
   padding: 12px 4px;
+  margin-top: 2em;
   float: right;
   width: 90px;
   position: relative;
@@ -9211,6 +9270,11 @@ a.moreType2:hover::after, a.moreType2:focus::after {
 .mp ul.iconLink li a:hover img, .mp ul.iconLink li a:focus img {
   transform: scale(0.9);
 }
+@media screen and (max-width: 1299px) {
+  .mp ul.iconLink li {
+    flex-basis: 33.3333333333%;
+  }
+}
 @media screen and (max-width: 991px) {
   .mp ul.iconLink li {
     flex-basis: 50%;
@@ -9382,6 +9446,12 @@ a.moreType2:hover::after, a.moreType2:focus::after {
 .infoSlider .swiperDots .swiper-pagination-current {
   font-size: 200%;
 }
+@media screen and (max-width: 991px) {
+  .infoSlider a.more {
+    margin-top: 12em;
+  }
+}
+
 h1.title,
 h2.title {
   font-size: 2em;
@@ -9465,8 +9535,7 @@ h2.title {
   line-height: 1.5em;
   list-style: none;
   margin: 0 0 0.7em 0;
-  border-left: solid 5px #1169c2;
-  padding: 0.8em 1.5em 0.8em;
+  padding: 1em 2em;
   background: #f2f2f2;
   display: flex;
   flex-wrap: wrap;
@@ -9474,7 +9543,7 @@ h2.title {
 }
 .cp .publishInfo li {
   flex: 1 1 33.3333333333%;
-  margin-bottom: 0.5em;
+  margin: 0.5em 0;
 }
 @media screen and (max-width: 991px) {
   .cp .publishInfo li {
@@ -9500,12 +9569,6 @@ h2.title {
 .fileDownload:after {
   clear: both;
 }
-.fileDownload h3 {
-  font-size: 1.5em;
-  padding: 12px 0px 15px 0px;
-  margin: 0.5em 0px 0.2em;
-  border-bottom: 1px solid #cacaca;
-}
 .fileDownload ul {
   list-style-type: none;
   padding: 0;
@@ -9518,12 +9581,12 @@ h2.title {
 }
 .fileDownload li:before {
   content: "·";
-  font-size: 2em;
+  font-size: 1.25em;
   font-weight: bold;
   width: 1em;
   height: 1em;
   position: absolute;
-  top: 0.42em;
+  top: 0.56em;
   left: 0.1em;
   color: #666;
 }
@@ -9548,12 +9611,11 @@ h2.title {
 .fileDownload li .fileType > span a {
   color: #fff;
   display: inline-block;
-  margin-right: 8px;
 }
 .fileDownload li span.file_doc a {
   color: #fff;
   font-weight: bold;
-  padding: 0.2em 0.8em;
+  padding: 0.35em 1.125em;
   border-radius: 3px;
 }
 .fileDownload li span.file_doc a:hover, .fileDownload li span.file_doc a:focus-visible {
@@ -9562,7 +9624,7 @@ h2.title {
 .fileDownload li span.file_docx a {
   color: #fff;
   font-weight: bold;
-  padding: 0.2em 0.8em;
+  padding: 0.35em 1.125em;
   border-radius: 3px;
 }
 .fileDownload li span.file_docx a:hover, .fileDownload li span.file_docx a:focus-visible {
@@ -9571,7 +9633,7 @@ h2.title {
 .fileDownload li span.file_odt a {
   color: #fff;
   font-weight: bold;
-  padding: 0.2em 0.8em;
+  padding: 0.35em 1.125em;
   border-radius: 3px;
 }
 .fileDownload li span.file_odt a:hover, .fileDownload li span.file_odt a:focus-visible {
@@ -9580,7 +9642,7 @@ h2.title {
 .fileDownload li span.file_xls a {
   color: #fff;
   font-weight: bold;
-  padding: 0.2em 0.8em;
+  padding: 0.35em 1.125em;
   border-radius: 3px;
 }
 .fileDownload li span.file_xls a:hover, .fileDownload li span.file_xls a:focus-visible {
@@ -9589,7 +9651,7 @@ h2.title {
 .fileDownload li span.file_xlsx a {
   color: #fff;
   font-weight: bold;
-  padding: 0.2em 0.8em;
+  padding: 0.35em 1.125em;
   border-radius: 3px;
 }
 .fileDownload li span.file_xlsx a:hover, .fileDownload li span.file_xlsx a:focus-visible {
@@ -9598,7 +9660,7 @@ h2.title {
 .fileDownload li span.file_csv a {
   color: #fff;
   font-weight: bold;
-  padding: 0.2em 0.8em;
+  padding: 0.35em 1.125em;
   border-radius: 3px;
 }
 .fileDownload li span.file_csv a:hover, .fileDownload li span.file_csv a:focus-visible {
@@ -9607,7 +9669,7 @@ h2.title {
 .fileDownload li span.file_ods a {
   color: #fff;
   font-weight: bold;
-  padding: 0.2em 0.8em;
+  padding: 0.35em 1.125em;
   border-radius: 3px;
 }
 .fileDownload li span.file_ods a:hover, .fileDownload li span.file_ods a:focus-visible {
@@ -9616,7 +9678,7 @@ h2.title {
 .fileDownload li span.file_ppt a {
   color: #fff;
   font-weight: bold;
-  padding: 0.2em 0.8em;
+  padding: 0.35em 1.125em;
   border-radius: 3px;
 }
 .fileDownload li span.file_ppt a:hover, .fileDownload li span.file_ppt a:focus-visible {
@@ -9625,7 +9687,7 @@ h2.title {
 .fileDownload li span.file_pptx a {
   color: #fff;
   font-weight: bold;
-  padding: 0.2em 0.8em;
+  padding: 0.35em 1.125em;
   border-radius: 3px;
 }
 .fileDownload li span.file_pptx a:hover, .fileDownload li span.file_pptx a:focus-visible {
@@ -9634,7 +9696,7 @@ h2.title {
 .fileDownload li span.file_odp a {
   color: #fff;
   font-weight: bold;
-  padding: 0.2em 0.8em;
+  padding: 0.35em 1.125em;
   border-radius: 3px;
 }
 .fileDownload li span.file_odp a:hover, .fileDownload li span.file_odp a:focus-visible {
@@ -9643,7 +9705,7 @@ h2.title {
 .fileDownload li span.file_zip a {
   color: #fff;
   font-weight: bold;
-  padding: 0.2em 0.8em;
+  padding: 0.35em 1.125em;
   border-radius: 3px;
 }
 .fileDownload li span.file_zip a:hover, .fileDownload li span.file_zip a:focus-visible {
@@ -9652,7 +9714,7 @@ h2.title {
 .fileDownload li span.file_txt a {
   color: #fff;
   font-weight: bold;
-  padding: 0.2em 0.8em;
+  padding: 0.35em 1.125em;
   border-radius: 3px;
 }
 .fileDownload li span.file_txt a:hover, .fileDownload li span.file_txt a:focus-visible {
@@ -9661,7 +9723,7 @@ h2.title {
 .fileDownload li span.file_mov a {
   color: #fff;
   font-weight: bold;
-  padding: 0.2em 0.8em;
+  padding: 0.35em 1.125em;
   border-radius: 3px;
 }
 .fileDownload li span.file_mov a:hover, .fileDownload li span.file_mov a:focus-visible {
@@ -9670,7 +9732,7 @@ h2.title {
 .fileDownload li span.file_mp3 a {
   color: #fff;
   font-weight: bold;
-  padding: 0.2em 0.8em;
+  padding: 0.35em 1.125em;
   border-radius: 3px;
 }
 .fileDownload li span.file_mp3 a:hover, .fileDownload li span.file_mp3 a:focus-visible {
@@ -9679,7 +9741,7 @@ h2.title {
 .fileDownload li span.file_jpg a {
   color: #fff;
   font-weight: bold;
-  padding: 0.2em 0.8em;
+  padding: 0.35em 1.125em;
   border-radius: 3px;
 }
 .fileDownload li span.file_jpg a:hover, .fileDownload li span.file_jpg a:focus-visible {
@@ -9688,7 +9750,7 @@ h2.title {
 .fileDownload li span.file_wmv a {
   color: #fff;
   font-weight: bold;
-  padding: 0.2em 0.8em;
+  padding: 0.35em 1.125em;
   border-radius: 3px;
 }
 .fileDownload li span.file_wmv a:hover, .fileDownload li span.file_wmv a:focus-visible {
@@ -9697,7 +9759,7 @@ h2.title {
 .fileDownload li span.file_mp4 a {
   color: #fff;
   font-weight: bold;
-  padding: 0.2em 0.8em;
+  padding: 0.35em 1.125em;
   border-radius: 3px;
 }
 .fileDownload li span.file_mp4 a:hover, .fileDownload li span.file_mp4 a:focus-visible {
@@ -9706,7 +9768,7 @@ h2.title {
 .fileDownload li span.file_pdf a {
   color: #fff;
   font-weight: bold;
-  padding: 0.2em 0.8em;
+  padding: 0.35em 1.125em;
   border-radius: 3px;
 }
 .fileDownload li span.file_pdf a:hover, .fileDownload li span.file_pdf a:focus-visible {
@@ -9715,7 +9777,7 @@ h2.title {
 .fileDownload li span.file_other a {
   color: #fff;
   font-weight: bold;
-  padding: 0.2em 0.8em;
+  padding: 0.35em 1.125em;
   border-radius: 3px;
 }
 .fileDownload li span.file_other a:hover, .fileDownload li span.file_other a:focus-visible {
@@ -9789,12 +9851,6 @@ h2.title {
 .webLink {
   margin: 1em 0;
 }
-.webLink h3 {
-  font-size: 1.5em;
-  padding: 12px 0px 15px 0px;
-  margin: 0.5em 0px 0.2em;
-  border-bottom: 1px solid #cacaca;
-}
 .webLink ol,
 .webLink ul {
   list-style-type: none;
@@ -9809,7 +9865,7 @@ h2.title {
 }
 .webLink li:before {
   content: "·";
-  font-size: 2em;
+  font-size: 1.25em;
   font-weight: bold;
   width: 1em;
   height: 1em;
@@ -9830,6 +9886,20 @@ h2.title {
 }
 .webLink li a:focus-visible {
   outline: #0094e0 2px solid;
+}
+
+.fileDownload h3,
+.cpSlider h3,
+.webLink h3 {
+  font-size: 1.5em;
+  padding: 12px 0px 20px 0px;
+  margin: 0.5em 0;
+  border-bottom: 2px solid #a7a7a7;
+}
+.fileDownload li:last-child,
+.cpSlider li:last-child,
+.webLink li:last-child {
+  border-bottom: none;
 }
 
 @media print {

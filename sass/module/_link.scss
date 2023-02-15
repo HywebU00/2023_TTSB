@@ -28,9 +28,9 @@
     }
     a {
       border: 1px solid #ddd;
-      padding: 2em 2em 2em 5em;
+      padding: 2em 2em 2em 6em;
       display: block;
-      vertical-align: top;
+      // vertical-align: top;
       position: relative;
       height: 100%;
       font-weight: bold;
@@ -48,6 +48,7 @@
         width: 1em;
         top: 36%;
         left: 20px;
+        letter-spacing: -5px;
         text-align: center;
         font-size: 3em;
         color: rgba(0,0,0,.25);

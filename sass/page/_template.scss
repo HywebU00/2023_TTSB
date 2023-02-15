@@ -147,7 +147,7 @@ body {
       // backdrop-filter: blur(5px);
       a {
         color: #fff;
-        padding: 4px 2em;
+        padding: 5px 2em;
       }
       li li {
         a {
@@ -170,7 +170,7 @@ body {
       flex-basis: calc(100% - 300px);
       max-width: calc(100% - 300px);
       margin-top: 260px;
-      backdrop-filter: blur(5px);
+      backdrop-filter: blur(10px);
 
       // > section{
       //   backdrop-filter: blur(5px);
@@ -191,20 +191,47 @@ body {
     &::before {
       visibility: hidden;
     }
+    .swiper-slide{
+      margin: 4px;
+    }
     .caption {
       padding: 0 !important;
-      h3 {
-      }
-      p {
+      background: pink;
+
+      &::before{
+        content: '';
+        width: 0;
+        height: 2px;
+        background: darken($colorPrimary, 6);
+        position: absolute;
+        bottom: 0;
+        transition: .2s ease;
       }
     }
     a {
+      display: block;
       .caption {
         h3 {
+          margin-bottom: 0;
           color: #222;
         }
         p {
           color: #666;
+          margin: 0;
+          padding: 1em 0;
+          transition: .2s ease;
+        }
+      }
+      &:hover,
+      &:focus-visible{
+        .caption {
+          &::before{
+            width: 100%;
+          }
+          p{
+            color: darken($colorPrimary, 6);
+            font-weight: bold;
+          }
         }
       }
     }
@@ -367,15 +394,13 @@ body {
       flex-basis: calc(100% / 3);
       border-bottom: 1px solid #cacaca;
       border-right: 1px solid #cacaca;
-
       &:nth-child(3n) {
         border-right: none;
       }
-
       a {
         display: block;
         text-align: center;
-        padding: 2em 4em;
+        padding: 2em 3em;
         color: #222;
         font-weight: bold;
         transition: 0.2s ease;
@@ -383,6 +408,21 @@ body {
         &:focus {
           color: #fff;
           background: darken($colorPrimary, 10);
+        }
+      }
+    }
+    @media screen and (max-width: 1299px) {
+      li{
+        max-width: calc(100% / 2);
+        flex-basis: calc(100% / 2);
+        a{
+          padding: 2em 1em;
+        }
+        &:nth-child(3n) {
+          border-right: 1px solid #cacaca;
+        }
+        &:nth-child(2n+2) {
+          border-right: none;
         }
       }
     }

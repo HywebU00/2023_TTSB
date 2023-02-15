@@ -45,6 +45,7 @@ a.moreType2 {
   color: #222;
   border-top: 1px solid #ddd;
   padding: 12px 4px;
+  margin-top: 2em;
   float: right;
   width: 90px;
   position: relative;
@@ -663,15 +664,13 @@ a.moreType2 {
       .list {
         a {
           color: #fff;
-
           time{
             color: #fff;
           }
-
-          &:hover,
-          &:focus{
-            // background: pink;
-          }
+          // &:hover,
+          // &:focus{
+          //   background: pink;
+          // }
         }
       }
     }
@@ -713,6 +712,12 @@ a.moreType2 {
               transform: scale(.9);
             }
           }
+        }
+      }
+
+      @media screen and (max-width: 1299px) {
+        li {
+          flex-basis: calc(100% / 3);
         }
       }
 
@@ -913,6 +918,12 @@ a.moreType2 {
       font-size: 200%;
     }
     .swiper-pagination-total {
+    }
+  }
+
+  @include screen('tablet') {
+    a.more{
+      margin-top: 12em;
     }
   }
 }
