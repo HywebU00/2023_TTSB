@@ -4433,7 +4433,6 @@ img {
   }
   .fatFooter nav > ul > li a {
     line-height: 1.5;
-    font-size: 120%;
     display: block;
     font-weight: bold;
     padding: 1em 0px;
@@ -4486,10 +4485,10 @@ img {
   .fatFooter nav > ul > li ul ul {
     display: none;
   }
-  @media screen and (max-width: 991px) {
+  @media screen and (max-width: 1199px) {
     .fatFooter nav > ul li {
-      flex-basis: 33.3333333333%;
-      max-width: 33.3333333333%;
+      flex-basis: 25%;
+      max-width: 25%;
     }
   }
   @media screen and (max-width: 767px) {
@@ -7103,6 +7102,7 @@ img {
   }
   @media screen and (max-width: 991px) {
     .innerPage {
+      margin-top: 0;
       background: url(../images/bg_taiwan.png) left 0 bottom 30px no-repeat, url(../images/bg_slogan.png) right 30px bottom 30px no-repeat;
       background-attachment: fixed;
       background-size: 30%, 60%;
@@ -9265,7 +9265,6 @@ a.moreType2:hover::after, a.moreType2:focus::after {
 .mp ul.iconLink li a b {
   display: block;
   padding: 1em 0;
-  font-size: 110%;
 }
 .mp ul.iconLink li a:hover img, .mp ul.iconLink li a:focus img {
   transform: scale(0.9);

@@ -95,10 +95,12 @@ body {
     background-size: 450px, 60%;
   }
   @include screen('tablet') {
+    margin-top: 0;
     background: url(../images/bg_taiwan.png) left 0 bottom 30px no-repeat, 
                 url(../images/bg_slogan.png) right 30px bottom 30px no-repeat;
     background-attachment: fixed;
     background-size: 30%, 60%;
+
     &::before,
     &::after {
       z-index: 1;
