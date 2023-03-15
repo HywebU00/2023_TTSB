@@ -33,6 +33,17 @@
     }
   }
 
+  &.onMobile {
+    .content {
+      display: none;
+      &.active {
+        display: block;
+      }
+    }
+    .tabContent {
+      display: block;
+    }
+  }
   .tabContent {
     display: none;
     position: relative;

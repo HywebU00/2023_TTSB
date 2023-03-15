@@ -6199,6 +6199,15 @@ img {
     background: #1169c2;
     color: #fff;
   }
+  .tabSet.onMobile .content {
+    display: none;
+  }
+  .tabSet.onMobile .content.active {
+    display: block;
+  }
+  .tabSet.onMobile .tabContent {
+    display: block;
+  }
   .tabSet .tabContent {
     display: none;
     position: relative;
