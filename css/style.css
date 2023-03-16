@@ -6208,6 +6208,14 @@ img {
   .tabSet.onMobile .tabContent {
     display: block;
   }
+  .tabSet.onMobile .tabContent .tabBtn {
+    width: 100%;
+    border: none;
+    margin: 1px;
+    border-radius: 0;
+    box-shadow: none;
+    background: #ddd;
+  }
   .tabSet .tabContent {
     display: none;
     position: relative;
@@ -9008,6 +9016,7 @@ a.moreType2:hover::after, a.moreType2:focus::after {
   .mp .list > ul > li > a time,
   .mp .list ol > li > a time {
     flex: 1 1 100%;
+    margin-top: 10px;
   }
 }
 .mp .typeThumbs {
@@ -9226,11 +9235,14 @@ a.moreType2:hover::after, a.moreType2:focus::after {
   background: url(../images/bg_mp_tabs.jpg) 50% top no-repeat;
   background-size: cover;
 }
-.mp .tabSet .tabItems button {
+.mp .tabSet .tabItems button,
+.mp .tabSet .tabContent button {
   height: 4em;
   font-weight: bold;
 }
-.mp .tabSet .tabItems button.active {
+.mp .tabSet .tabItems button.active,
+.mp .tabSet .tabContent button.active {
+  color: #fff;
   background: #222;
 }
 .mp .tabSet .tabContent {
@@ -9242,6 +9254,11 @@ a.moreType2:hover::after, a.moreType2:focus::after {
 }
 .mp .tabSet .tabContent .list a time {
   color: #fff;
+}
+@media screen and (max-width: 991px) {
+  .mp .tabSet .tabContent {
+    padding: 0;
+  }
 }
 .mp ul.iconLink {
   margin: 0;

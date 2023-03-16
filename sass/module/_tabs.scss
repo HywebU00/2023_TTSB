@@ -42,6 +42,15 @@
     }
     .tabContent {
       display: block;
+
+      .tabBtn{
+        width: 100%;
+        border: none;
+        margin: 1px;
+        border-radius: 0;
+        box-shadow: none;
+        background: #ddd;
+      }
     }
   }
   .tabContent {

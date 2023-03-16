@@ -371,6 +371,7 @@ a.moreType2 {
             flex-wrap: wrap;
             time {
               flex: 1 1 100%;
+              margin-top: 10px;
             }
           }
         }
@@ -650,17 +651,18 @@ a.moreType2 {
     background-size: cover;
   }
   .tabSet {
-    .tabItems button {
+    .tabItems button,
+    .tabContent button{
       height: 4em;
       font-weight: bold;
       &.active {
+        color: #fff;
         background: #222;
       }
     }
     .tabContent {
       box-shadow: none;
       padding: 1em 0;
-
       .list {
         a {
           color: #fff;
@@ -672,6 +674,9 @@ a.moreType2 {
           //   background: pink;
           // }
         }
+      }
+      @include screen('tablet') {
+        padding: 0;
       }
     }
   }
