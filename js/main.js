@@ -334,7 +334,7 @@ function mobileSearch(obj) {
       mobileSearch.removeAttribute('style');
       mobileSearch.classList.add('active');
       jsFadeIn(menuOverlay);
-      menuOverlay.style.zIndex = `90`;
+      menuOverlay.style.zIndex = `89`;
       menuOverlay.style.top = `60px`;
       searchOpen = true;
     } else {
