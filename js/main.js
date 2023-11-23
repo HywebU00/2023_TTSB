@@ -2,7 +2,7 @@
 // -----  nojs 先移除  ----------------------------------------------------
 // -----------------------------------------------------------------------
 
-const windowWidthSmall = 990;
+const windowWidthSmall = 992;
 const _webHtml = document.documentElement;
 _webHtml.classList.remove('no-js');
 
@@ -279,15 +279,19 @@ function menu() {
   function mobileSearchFunction() {
     let windowWidth = window.outerWidth;
     const search = document.querySelector('.webSearch');
-    if (search !== null && windowWidth < windowWidthSmall) {
-      search.removeAttribute('style');
-      search.classList.add('mobileSearch');
-      search.classList.remove('desktopSearch');
-    } else if (search !== null && windowWidth > windowWidthSmall) {
-      search.removeAttribute('style');
-      search.classList.remove('mobileSearch');
-      search.classList.add('desktopSearch');
-    }
+    const searchBtn = document.querySelector('.searchCtrl') || null;
+
+    searchBtn.classList.remove('active');
+
+    // if (search !== null && windowWidth < windowWidthSmall) {
+    //   search.removeAttribute('style');
+    //   search.classList.remove('desktopSearch');
+    //   search.classList.add('mobileSearch');
+    // } else if (search !== null && windowWidth > windowWidthSmall) {
+    //   search.removeAttribute('style');
+    //   search.classList.remove('mobileSearch');
+    //   search.classList.add('desktopSearch');
+    // }
   }
 }
 menu();
@@ -1911,6 +1915,7 @@ langFunction({
   }
   function clickOtherPlace(e) {
     if ((e.target.closest(`.wrapper .webSearch`) === null) & (e.target !== searchBtn)) {
+      searchBtn.classList.remove('active');
       webSearch.classList.remove('active');
     } else {
       return;
